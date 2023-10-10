@@ -1656,6 +1656,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542440662}
   - component: {fileID: 1542440663}
+  - component: {fileID: 1542440664}
   m_Layer: 0
   m_Name: TypeManager
   m_TagString: Untagged
@@ -1723,6 +1724,20 @@ MonoBehaviour:
     subTypes: 030000000400000005000000
   - type: 2
     subTypes: 060000000700000008000000
+--- !u!114 &1542440664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542440661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a8d2b7c2fd60bf4aa0879d37e46b6f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _e: {fileID: 1542440663}
+  _ref: {fileID: 11400000, guid: 8736132b03ac5e743a0454492b5d22dc, type: 2}
 --- !u!1 &1695124657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,6 +1830,7 @@ MonoBehaviour:
   moduleParent: {fileID: 524264549}
   modulePrefab: {fileID: 6915463633402712274, guid: 6f96f9f26fcee334d891a92fd8a718b2,
     type: 3}
+  typeManagerRef: {fileID: 11400000, guid: 8736132b03ac5e743a0454492b5d22dc, type: 2}
 --- !u!1001 &1711183245
 PrefabInstance:
   m_ObjectHideFlags: 0

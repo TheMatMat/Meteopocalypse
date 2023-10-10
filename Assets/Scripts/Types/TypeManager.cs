@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TypeManager : MonoBehaviour
@@ -29,4 +30,6 @@ public class TypeManager : MonoBehaviour
     [SerializeField] private List<TypeStruct> types;
     [SerializeField] private List<SubTypeStruct> subTypes;
     [SerializeField] private List<CategoryType> categoriesType;
+
+    public Sprite GetSpriteByType(EType type) => types.FirstOrDefault(typeStruct => typeStruct.type == type).typeSprite;
 }
