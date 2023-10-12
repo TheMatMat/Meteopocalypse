@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -269,6 +269,129 @@ MonoBehaviour:
   onReturnSpaceShip:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &132129129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132129130}
+  - component: {fileID: 132129131}
+  m_Layer: 0
+  m_Name: PlayerInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132129130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132129129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &132129131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132129129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bcd076b4cb569324dbb8272c86e46558,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0dad641a-35c9-44ed-8fdf-f5a1c9de1e8a
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 15ff5cda-dd5a-4e96-868d-52a354217855
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e16422d0-681a-402b-9310-fe0da78bcf58
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ec0121d6-aabd-4d5f-b549-994e979befad
+    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70b1d6fc-cd31-4dbd-8729-136434978689
+    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 68179d01-a30b-420e-92c0-734d17945e25
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 96bec24c-3a2b-4a10-a390-80e9cce173e8
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc2d03ab-46ec-436b-aab0-991123617f36
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0daeb48c-eb09-49fe-b0fd-2a709fb9a68c
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e9c2e046-1e71-435c-87dd-a3638ea452e6
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a476285-e353-4e57-a9c5-dda1a36814b4
+    m_ActionName: UI/Right[/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ef6607d2-9709-420a-b64a-889b2cd31d2f
+    m_ActionName: UI/Down[/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13aad7d0-6a95-4841-be6c-bc70716b3087
+    m_ActionName: UI/Left[/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 73b2f63e-1f4b-4737-8c48-0c38306a9230
+    m_ActionName: UI/Top[/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbe25c76-b88f-4fe7-b246-edd98f9a0145
+    m_ActionName: UI/Interact[/Keyboard/e]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &281545135
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -486,6 +609,7 @@ GameObject:
   - component: {fileID: 516772018}
   - component: {fileID: 516772017}
   - component: {fileID: 516772019}
+  - component: {fileID: 516772020}
   m_Layer: 5
   m_Name: Ships
   m_TagString: Untagged
@@ -582,6 +706,74 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &516772020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516772015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9176b80ba89ed6642b4cd88e28fc3eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navigations:
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 0
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 85033e2b-428f-46c1-acf4-121c1d9b1f89
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 1331072127643598763, guid: bcd076b4cb569324dbb8272c86e46558,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 1
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 36180efa-1c1e-4c58-8096-865a50d94f46
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -2199152295716744255, guid: bcd076b4cb569324dbb8272c86e46558,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 2
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a5a2eb07-6534-430d-828f-979a19e4d531
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -746597609280235496, guid: bcd076b4cb569324dbb8272c86e46558,
+      type: 3}
+  - m_UseReference: 1
+    m_Action:
+      m_Name: Element 3
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 6ca0ca78-a69a-4b8b-92a8-73f921caede2
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 4190258930092649220, guid: bcd076b4cb569324dbb8272c86e46558,
+      type: 3}
+  navigationButtons:
+  - {fileID: 523919178}
+  - {fileID: 281545138}
+  - {fileID: 829706054}
+  - {fileID: 899806671}
+  - {fileID: 554772667}
+  - {fileID: 75121497}
 --- !u!1 &523919176
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,7 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -930,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1101,7 +1293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1247,7 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1380,27 +1572,27 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_PointAction: {fileID: -925863261355167502, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MoveAction: {fileID: 7279297852735375395, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_SubmitAction: {fileID: -4328213288579680529, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_CancelAction: {fileID: -6691597399760432064, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_LeftClickAction: {fileID: -4240250103110990453, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_MiddleClickAction: {fileID: -1470012217987775157, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_RightClickAction: {fileID: 4749052374588890840, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_ScrollWheelAction: {fileID: -6258571026173109285, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDevicePositionAction: {fileID: -8714922197604774631, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018,
+  m_TrackedDeviceOrientationAction: {fileID: 2955430349679907088, guid: bcd076b4cb569324dbb8272c86e46558,
     type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
@@ -1692,30 +1884,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   types:
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     type: 0
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     type: 1
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     type: 2
   subTypes:
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 0
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 1
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 2
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 3
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 4
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 5
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 6
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 7
-  - typeSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  - typeSprite: {fileID: 0}
     subType: 8
   categoriesType:
   - type: 0
@@ -1830,7 +2022,22 @@ MonoBehaviour:
   moduleParent: {fileID: 524264549}
   modulePrefab: {fileID: 6915463633402712274, guid: 6f96f9f26fcee334d891a92fd8a718b2,
     type: 3}
+  eventSystem: {fileID: 1120710427}
   typeManagerRef: {fileID: 11400000, guid: 8736132b03ac5e743a0454492b5d22dc, type: 2}
+  currentNavigation: {fileID: 516772020}
+  back:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Back
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: a9d28e75-3bea-429e-827f-668e90b9be4a
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 2604896787978066975, guid: bcd076b4cb569324dbb8272c86e46558,
+      type: 3}
 --- !u!1001 &1711183245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1975,3 +2182,4 @@ SceneRoots:
   - {fileID: 1120710428}
   - {fileID: 492967589}
   - {fileID: 1542440662}
+  - {fileID: 132129130}

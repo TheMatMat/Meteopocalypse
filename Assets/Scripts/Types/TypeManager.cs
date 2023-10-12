@@ -32,4 +32,7 @@ public class TypeManager : MonoBehaviour
     [SerializeField] private List<CategoryType> categoriesType;
 
     public Sprite GetSpriteByType(EType type) => types.FirstOrDefault(typeStruct => typeStruct.type == type).typeSprite;
+    public EType GetTypeBySprite(Sprite sprite) => types.FirstOrDefault(typeStruct => typeStruct.typeSprite == sprite).type;
+    public CategoryType GetCategoryStructByType(EType category) => categoriesType.FirstOrDefault(categoryStruct => categoryStruct.type == category);
+    public Sprite GetSpriteBySubType(ESubType subType) => subTypes.FirstOrDefault(subTypeStruct => subTypeStruct.subType == subType).typeSprite;
 }
