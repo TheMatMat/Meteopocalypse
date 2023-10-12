@@ -13,9 +13,9 @@ using Image = UnityEngine.UI.Image;
 public class ShipCreatorManager : MonoBehaviour
 {
 
-    private SpaceShipData _targetShip;
+    private SpaceShip _targetShip;
 
-    public SpaceShipData TargetShip
+    public SpaceShip TargetShip
     {
         get => _targetShip;
         set => _targetShip = value;
@@ -26,6 +26,7 @@ public class ShipCreatorManager : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private TypeManagerRef typeManagerRef;
     [SerializeField] private NavigationSystem currentNavigation;
+    [SerializeField] private PlanetManager planetManager;
 
     [SerializeField] private InputActionProperty back;
     private NavigationSystem CurrentNavigation
@@ -63,9 +64,9 @@ public class ShipCreatorManager : MonoBehaviour
 
     public void EnableMenu(GameObject clickedShip)
     {
-        _targetShip = clickedShip.GetComponent<SpaceShip>().ShipData;
+        _targetShip = clickedShip.GetComponent<SpaceShip>();
 
-        for (int i = 0; i < _targetShip.MaxModule; i++)
+        for (int i = 0; i < _targetShip.ShipData.MaxModule; i++)
         {
             GameObject moduleInstance = Instantiate(modulePrefab);
             moduleInstance.transform.parent = moduleParent.transform;
@@ -227,6 +228,18 @@ public class ShipCreatorManager : MonoBehaviour
 
             horizontalGroup.spacing = 200;
             _action = 0;
+        }
+    }
+    
+    private void OnTryToSend(string coordinates)
+    {
+        foreach (Planet planet in planetManager.Planets)
+        {
+            if (planet.Data._planetCoordinates.ToString() == coordinates)
+            {
+                TargetShip.Send(planet);
+                break;
+            }
         }
     }
 }

@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class SpaceShip : MonoBehaviour
 { 
 
-    [SerializeField] private GameObject reachPlanet;
+    [SerializeField] private Planet reachPlanet;
 
     [SerializeField] private SpaceShipData shipData;
-
+    
     public SpaceShipData ShipData
     {
         get => shipData;
@@ -39,7 +39,6 @@ public class SpaceShip : MonoBehaviour
         _spacesipUI = GetComponent<Image>();
         _spaceShipsEvent = spaceShipsEventRef.Instance;
 
-        _timeToReachPlanet = distance / shipData.ShipSpeed;
     }
     private void Update()
     {
@@ -56,25 +55,37 @@ public class SpaceShip : MonoBehaviour
         }
     }
 
-    public void Send()
+    public void Send(Planet planet)
     {
+        //122-3123
+        
+        // PlanetCoodinates
+        
+        // La planete qui a 
+        reachPlanet = planet;
+        
         Debug.Log("send");
         _hasBeenSend = true; 
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 0.3f);
-        spaceShipsEventRef.Instance.SendSpaceShip(null);
+        
+        _timeToReachPlanet = distance / shipData.ShipSpeed;
+        spaceShipsEventRef.Instance.SendSpaceShip(this);
         onSendSpaceShip?.Invoke();
+        
     }
 
     public void Arrive()
     {
         Debug.Log("arrive");
-        _spaceShipsEvent.ArriveSpaceShip(null);
+        _spaceShipsEvent.ArriveSpaceShip(this);
         onArriveSpaceShip?.Invoke(); 
+        reachPlanet.ReceiveSonde();
+        
     }
 
     public void Return()
     {
-        _spaceShipsEvent.ReturnSpaceShip(null);
+        _spaceShipsEvent.ReturnSpaceShip(this);
         onReturnSpaceShip?.Invoke();
     }
 }

@@ -24,7 +24,7 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void ReceiveSonde()
+    public void ReceiveSonde()
     {
         foreach(Mission mission in _missions)
         {
@@ -62,4 +62,6 @@ public struct PlanetCoordinates
 {
     int _latitude;
     int _longitude;
+
+    public string ToString() => _latitude + "-" + _longitude;
 }
