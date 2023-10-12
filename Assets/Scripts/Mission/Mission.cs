@@ -61,7 +61,7 @@ public class Mission : MonoBehaviour
         _missionCount++;
 
         //set timer
-        _remainingTime = UnityEngine.Random.Range(10f, 20f); // in seconds
+        _remainingTime = UnityEngine.Random.Range(1000f, 2000f); // in seconds
 
         //set mission type and subtype
         _type = type;

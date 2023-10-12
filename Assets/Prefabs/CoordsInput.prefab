@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 8903926051180590983}
   - component: {fileID: 975145936289655132}
   - component: {fileID: 8294264141718454177}
+  - component: {fileID: 8160829374926280674}
   m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
@@ -363,7 +364,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8160829374926280674}
+        m_TargetAssemblyTypeName: CoordinatesFieldEncoder, Assembly-CSharp
+        m_MethodName: OnTypeCoordinates
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTouchScreenKeyboardStatusChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -382,6 +395,18 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &8160829374926280674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110678001456064210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cd626274bf62a498260d81add1205f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6773836452466817498
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6871755297820979362
 RectTransform:
   m_ObjectHideFlags: 0

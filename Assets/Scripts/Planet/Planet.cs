@@ -10,6 +10,27 @@ public class Planet : MonoBehaviour
 
     [SerializeField] List<Mission> _missions = new List<Mission>();
 
+    [SerializeField] int distanceToStation;
+
+    public int DistanceToStation
+    {
+        get => distanceToStation;
+    }
+
+
+    public PlanetCoordinates planetCoordinates;
+
+
+    private void Awake()
+    {
+        distanceToStation = Random.Range(500,2000);
+
+        PlanetCoordinates coordinates = new PlanetCoordinates(Random.Range(1000,9999),Random.Range(1000,9999));
+
+        planetCoordinates = coordinates;
+
+    }
+
     public void AssignMission(Mission mission)
     {
         _missions.Add(mission);
@@ -24,7 +45,7 @@ public class Planet : MonoBehaviour
         }
     }
 
-    public void ReceiveSonde()
+    public void ReceiveSonde(SpaceShip spaceShip)
     {
         foreach(Mission mission in _missions)
         {
@@ -32,7 +53,7 @@ public class Planet : MonoBehaviour
         }
     }
 
-    void ReceiveSpaceShip(List<MISSION_SUBTYPE> subtypes)
+    public void ReceiveSpaceShip(List<MISSION_SUBTYPE> subtypes)
     {
         foreach(Mission mission in _missions.ToList())
         {
@@ -53,15 +74,21 @@ public class PlanetData
 {
     public int _id;
     public string _name;
-    public PlanetCoordinates _planetCoordinates;
     public Sprite _sprite;
     public GameObject _gameObject;
 }
 
+[System.Serializable]
 public struct PlanetCoordinates
 {
-    int _latitude;
-    int _longitude;
+    public int _latitude;
+    public int _longitude;
+
+    public PlanetCoordinates(int latitude, int longitude)
+    {
+        _latitude = latitude;
+        _longitude = longitude;
+    }
 
     public string ToString() => _latitude + "-" + _longitude;
 }

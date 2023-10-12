@@ -23,7 +23,7 @@ public class Notification : MonoBehaviour
 
     public void SetText()
     {
-        headerTMP.text = _mission.Planet.Data._name;
+        headerTMP.text = _mission.Planet.Data._name + " : " + _mission.Planet.planetCoordinates.ToString();
         messageTMP.text = _mission.MissionText;
     }
 

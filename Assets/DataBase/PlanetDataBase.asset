@@ -13,15 +13,31 @@ MonoBehaviour:
   m_Name: PlanetDataBase
   m_EditorClassIdentifier: 
   _data:
-  - _name: Terre
+  - _id: 0
+    _name: Terre
+    _planetCoordinates:
+      _latitude: 0
+      _longitude: 0
     _sprite: {fileID: 0}
     _gameObject: {fileID: 0}
-  - _name: Mars
+  - _id: 1
+    _name: Mars
+    _planetCoordinates:
+      _latitude: 0
+      _longitude: 0
     _sprite: {fileID: 0}
     _gameObject: {fileID: 0}
-  - _name: Jupiter
+  - _id: 2
+    _name: Jupiter
+    _planetCoordinates:
+      _latitude: 0
+      _longitude: 0
     _sprite: {fileID: 0}
     _gameObject: {fileID: 0}
-  - _name: Uranus
+  - _id: 3
+    _name: Uranus
+    _planetCoordinates:
+      _latitude: 0
+      _longitude: 0
     _sprite: {fileID: 0}
     _gameObject: {fileID: 0}
