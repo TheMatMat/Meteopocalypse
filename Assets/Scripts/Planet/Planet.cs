@@ -10,6 +10,15 @@ public class Planet : MonoBehaviour
 
     [SerializeField] List<Mission> _missions = new List<Mission>();
 
+    private int spinSpeed;
+    public int SpinSpeed { get { return spinSpeed; } set { spinSpeed = value;  } }
+
+
+    private void Update()
+    {
+        transform.RotateAround(new Vector3(0,0,0), new Vector3(0,1,0), spinSpeed * Time.deltaTime);
+    }
+
     public void AssignMission(Mission mission)
     {
         _missions.Add(mission);
