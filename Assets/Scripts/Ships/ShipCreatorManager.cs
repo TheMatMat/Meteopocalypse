@@ -180,7 +180,7 @@ public class ShipCreatorManager : MonoBehaviour
                 
                 GameObject moduleParent = button.transform.parent.parent.gameObject;
 
-                MISSION_SUBTYPE missionModule = _typeManager.GetSubTypeBySprite(button.transform.parent.GetChild(button.transform.parent.childCount - 1).GetComponent<Image>().sprite);
+                MISSION_SUBTYPE missionModule = _typeManager.GetSubTypeBySprite(button.GetComponent<Image>().sprite);
                 _targetShip.AddModule(missionModule);
 
                 int index = -1;

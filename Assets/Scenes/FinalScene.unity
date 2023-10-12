@@ -1359,7 +1359,7 @@ PrefabInstance:
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
       propertyPath: maxMissionSimultaneously
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5791596500748484018, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
@@ -1898,7 +1898,6 @@ GameObject:
   m_Component:
   - component: {fileID: 831066357}
   - component: {fileID: 831066356}
-  - component: {fileID: 831066355}
   - component: {fileID: 831066354}
   m_Layer: 0
   m_Name: Camera
@@ -1951,14 +1950,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &831066355
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831066353}
-  m_Enabled: 1
 --- !u!20 &831066356
 Camera:
   m_ObjectHideFlags: 0
@@ -2070,30 +2061,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   types:
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 39b8868b64f4a92448dc6506741658ab, type: 3}
     type: 0
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 93ed886e9de2b2646ba00a013b581564, type: 3}
     type: 1
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 1477d23e1b071f64b8e51324576d22da, type: 3}
     type: 2
   subTypes:
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 042a37e14d30f8342a46d439e2402382, type: 3}
     subType: 0
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: c47dae461a8bdab48aa47e42bfe44996, type: 3}
     subType: 1
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 78ef334b70dffa44690acbe3b51b27b9, type: 3}
     subType: 2
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 04fa0e153021c364482bd3171c434109, type: 3}
     subType: 3
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: d56c4cc830eb8de4fab62c0516f0faec, type: 3}
     subType: 4
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 5ae02cd6cf604bf429d4e0b5decedc20, type: 3}
     subType: 5
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 0574600a0580d5c4c87721e071d4a264, type: 3}
     subType: 6
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: b1a62a209ec1d64468d42c20af2edc6a, type: 3}
     subType: 7
-  - typeSprite: {fileID: 0}
+  - typeSprite: {fileID: 21300000, guid: 1477d23e1b071f64b8e51324576d22da, type: 3}
     subType: 8
   categoriesType:
   - type: 0

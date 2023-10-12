@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Notification : MonoBehaviour
 {
@@ -13,12 +14,19 @@ public class Notification : MonoBehaviour
     public Mission Mission { get { return _mission; } set { _mission = value;  } }
 
     [SerializeField] TextMeshProUGUI headerTMP, messageTMP;
+    [SerializeField] Slider slider;
 
     public RectTransform _rectTransform;
 
     void Awake()
     {
         _rectTransform = this.gameObject.GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        float t = _mission.RemainingTime / _mission.MaxTime;
+        slider.value = t;
     }
 
     public void SetText()

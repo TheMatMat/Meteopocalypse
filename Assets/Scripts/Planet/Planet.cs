@@ -31,7 +31,7 @@ public class Planet : MonoBehaviour
         distanceToStation = Random.Range(500,2000);
 
         PlanetCoordinates coordinates = new PlanetCoordinates(Random.Range(1000,9999),Random.Range(1000,9999));
-
+        
         planetCoordinates = coordinates;
 
     }
@@ -62,10 +62,12 @@ public class Planet : MonoBehaviour
     {
         foreach(Mission mission in _missions.ToList())
         {
-            foreach(MISSION_SUBTYPE subtype in subtypes)
+            foreach(MISSION_SUBTYPE subtype in subtypes.ToList())
             {
                 if(mission.Subtype == subtype)
                 {
+                    _missions.Remove(mission);
+                    subtypes.Remove(subtype);
                     Debug.Log("Mission done");
                     mission.MissionDone();
                 }

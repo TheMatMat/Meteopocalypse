@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System;
 
 public class MissionManager : MonoBehaviour
 {
@@ -14,6 +15,20 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private int maxMissionSimultaneously;
     [SerializeField] private float minNewMissionCooldown;
     [SerializeField] private float maxNewMissionCooldown;
+    [SerializeField] private List<MissionResult> dailyMissions = new List<MissionResult>();
+
+
+    public List<Mission> Missions
+    {
+        get => _missions;
+    }
+
+    public List<MissionResult> DailyMissions
+    {
+        get => dailyMissions;
+    }
+
+    public event Action OnMissionFinished;
 
 
     void Start()
@@ -31,8 +46,8 @@ public class MissionManager : MonoBehaviour
 
 
         // random type and subtype
-        int randomType = Random.Range(0, (int)MISSION_TYPE.NB_VALUES);
-        int randomSubtype = Random.Range(randomType * 3, randomType * 3 + 2);
+        int randomType = UnityEngine.Random.Range(0, (int)MISSION_TYPE.NB_VALUES);
+        int randomSubtype = UnityEngine.Random.Range(randomType * 3, randomType * 3 + 2);
 
         //initalize mission
         GameObject missionPrefab = Instantiate(_missionPrefab, this.transform);
@@ -46,7 +61,7 @@ public class MissionManager : MonoBehaviour
 
         List<Planet> availablePlanets = new List<Planet>(_planetManager.Planets);
 
-        Planet pickedPlanet = availablePlanets[Random.Range(0, availablePlanets.Count)];
+        Planet pickedPlanet = availablePlanets[UnityEngine.Random.Range(0, availablePlanets.Count)];
 
         while(pickedPlanet.Missions.Count >= 2)
         {
@@ -56,7 +71,7 @@ public class MissionManager : MonoBehaviour
             }
 
             availablePlanets.Remove(pickedPlanet);
-            pickedPlanet = availablePlanets[Random.Range(0, availablePlanets.Count)];
+            pickedPlanet = availablePlanets[UnityEngine.Random.Range(0, availablePlanets.Count)];
         }
 
         pickedPlanet.AssignMission(mission);
@@ -65,7 +80,7 @@ public class MissionManager : MonoBehaviour
         mission.OnMissionDone += pickedPlanet.RemoveMission;
         mission.OnMissionTimeUp += pickedPlanet.RemoveMission;
 
-        mission.InitializeMission((MISSION_TYPE)randomType, (MISSION_SUBTYPE)randomSubtype, pickedPlanet);
+        mission.InitializeMission((MISSION_TYPE)randomType, (MISSION_SUBTYPE)randomSubtype, pickedPlanet,this);
         _missions.Add(mission);
 
         //assign the notification
@@ -79,7 +94,7 @@ public class MissionManager : MonoBehaviour
 
     private IEnumerator WaitNextMission()
     {
-        float randomTime = Random.Range(minNewMissionCooldown, maxNewMissionCooldown);
+        float randomTime = UnityEngine.Random.Range(minNewMissionCooldown, maxNewMissionCooldown);
 
         yield return new WaitForSeconds(randomTime);
 
@@ -93,5 +108,12 @@ public class MissionManager : MonoBehaviour
             if(mission.ID == _id)
                 _missions.Remove(mission);
         }
+
+        OnMissionFinished?.Invoke();
+    }
+
+    public void ClearMission()
+    {
+        _missions.Clear();
     }
 }
