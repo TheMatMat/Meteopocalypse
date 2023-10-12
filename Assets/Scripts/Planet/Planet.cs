@@ -17,6 +17,11 @@ public class Planet : MonoBehaviour
         get => distanceToStation;
     }
 
+    public List<Mission> Missions
+    {
+        get => _missions;
+    }
+
 
     public PlanetCoordinates planetCoordinates;
 

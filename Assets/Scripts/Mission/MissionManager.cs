@@ -11,15 +11,25 @@ public class MissionManager : MonoBehaviour
 
     public GameObject _missionPrefab;
     [SerializeField] List<Mission> _missions = new List<Mission>();
+    [SerializeField] private int maxMissionSimultaneously;
+    [SerializeField] private float minNewMissionCooldown;
+    [SerializeField] private float maxNewMissionCooldown;
+
 
     void Start()
     {
-
+        StartCoroutine(WaitNextMission());
     }
 
     [Button("Create a Mission")]
     void CreateNewMission()
     {
+        if(_missions.Count > maxMissionSimultaneously)
+        {
+            return;
+        }
+
+
         // random type and subtype
         int randomType = Random.Range(0, (int)MISSION_TYPE.NB_VALUES);
         int randomSubtype = Random.Range(randomType * 3, randomType * 3 + 2);
@@ -32,8 +42,23 @@ public class MissionManager : MonoBehaviour
         mission.OnMissionDone += RemoveMission;
         mission.OnMissionTimeUp += RemoveMission;
 
-        //pick a planet to link the mission
-        Planet pickedPlanet = _planetManager.Planets[Random.Range(0, _planetManager.Planets.Count - 1)];
+        //pick a planet to link the mission and ensure it has less than 2 missions
+
+        List<Planet> availablePlanets = new List<Planet>(_planetManager.Planets);
+
+        Planet pickedPlanet = availablePlanets[Random.Range(0, availablePlanets.Count)];
+
+        while(pickedPlanet.Missions.Count >= 2)
+        {
+            if (availablePlanets.Count == 0)
+            {
+                return;
+            }
+
+            availablePlanets.Remove(pickedPlanet);
+            pickedPlanet = availablePlanets[Random.Range(0, availablePlanets.Count)];
+        }
+
         pickedPlanet.AssignMission(mission);
 
         //register in the mission events
@@ -46,8 +71,19 @@ public class MissionManager : MonoBehaviour
         //assign the notification
         mission.Notification = _notificationManager.NewNotificaiton(mission);
 
-
         Debug.Log("New Mission: " + mission.Type + " - " + mission.Subtype + " on " + pickedPlanet.name);
+
+        StartCoroutine(WaitNextMission());
+    }
+
+
+    private IEnumerator WaitNextMission()
+    {
+        float randomTime = Random.Range(minNewMissionCooldown, maxNewMissionCooldown);
+
+        yield return new WaitForSeconds(randomTime);
+
+        CreateNewMission();
     }
 
     void RemoveMission(int _id)

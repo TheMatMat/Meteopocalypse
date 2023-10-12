@@ -1346,6 +1346,21 @@ PrefabInstance:
       propertyPath: _notificationManager
       value: 
       objectReference: {fileID: 759575163}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
+      propertyPath: maxNewMissionCooldown
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
+      propertyPath: minNewMissionCooldown
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
+      propertyPath: maxMissionSimultaneously
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5791596500748484018, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
       propertyPath: m_LocalPosition.x
