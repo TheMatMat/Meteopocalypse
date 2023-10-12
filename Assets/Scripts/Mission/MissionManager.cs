@@ -7,6 +7,7 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     [SerializeField] PlanetManager _planetManager;
+    [SerializeField] NotificationManager _notificationManager;
 
     public GameObject _missionPrefab;
     [SerializeField] List<Mission> _missions = new List<Mission>();
@@ -27,8 +28,6 @@ public class MissionManager : MonoBehaviour
         GameObject missionPrefab = Instantiate(_missionPrefab, this.transform);
         Mission mission = missionPrefab.GetComponent<Mission>();
 
-        mission.InitializeMission((MISSION_TYPE)randomType, (MISSION_SUBTYPE)randomSubtype);
-        _missions.Add(mission);
         //register in the mission events
         mission.OnMissionDone += RemoveMission;
         mission.OnMissionTimeUp += RemoveMission;
@@ -36,9 +35,17 @@ public class MissionManager : MonoBehaviour
         //pick a planet to link the mission
         Planet pickedPlanet = _planetManager.Planets[Random.Range(0, _planetManager.Planets.Count - 1)];
         pickedPlanet.AssignMission(mission);
+
         //register in the mission events
         mission.OnMissionDone += pickedPlanet.RemoveMission;
         mission.OnMissionTimeUp += pickedPlanet.RemoveMission;
+
+        mission.InitializeMission((MISSION_TYPE)randomType, (MISSION_SUBTYPE)randomSubtype, pickedPlanet);
+        _missions.Add(mission);
+
+        //assign the notification
+        mission.Notification = _notificationManager.NewNotificaiton(mission);
+
 
         Debug.Log("New Mission: " + mission.Type + " - " + mission.Subtype + " on " + pickedPlanet.name);
     }

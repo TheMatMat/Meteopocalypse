@@ -26,18 +26,32 @@ public class Planet : MonoBehaviour
 
     void ReceiveSonde()
     {
-
+        foreach(Mission mission in _missions)
+        {
+            Debug.Log(mission.Subtype);
+        }
     }
 
-    void ReceiveSpaceShip()
+    void ReceiveSpaceShip(List<MISSION_SUBTYPE> subtypes)
     {
-
+        foreach(Mission mission in _missions.ToList())
+        {
+            foreach(MISSION_SUBTYPE subtype in subtypes)
+            {
+                if(mission.Subtype == subtype)
+                {
+                    Debug.Log("Mission done");
+                    mission.MissionDone();
+                }
+            }
+        }
     }
 }
 
 [System.Serializable]
 public class PlanetData
 {
+    public int _id;
     public string _name;
     public PlanetCoordinates _planetCoordinates;
     public Sprite _sprite;

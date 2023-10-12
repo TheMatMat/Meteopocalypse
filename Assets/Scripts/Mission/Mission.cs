@@ -34,20 +34,27 @@ public class Mission : MonoBehaviour
     static int _missionCount = 0;
 
     [SerializeField] int _id;
+    [SerializeField] string _missionText;
     [SerializeField] float _remainingTime; // in seconds
     [SerializeField] MISSION_TYPE _type;
     [SerializeField] MISSION_SUBTYPE _subtype;
+    [SerializeField] Planet _planet;
+    [SerializeField] Notification _notification;
 
     //Properties
     public int ID { get { return _id; } }
+    public string MissionText { get { return _missionText; } }
     public MISSION_TYPE Type { get { return _type; } }
     public MISSION_SUBTYPE Subtype { get { return _subtype; } }
+    public Planet Planet { get { return _planet; } set { _planet = value; } }
+    public Notification Notification { get { return _notification; } set { _notification = value; } }
+
 
     //Events
     public event Action<int> OnMissionDone;
     public event Action<int> OnMissionTimeUp;
 
-    public void InitializeMission(MISSION_TYPE type, MISSION_SUBTYPE subtype)
+    public void InitializeMission(MISSION_TYPE type, MISSION_SUBTYPE subtype, Planet planet)
     {
         //set mission id
         _id = _missionCount;
@@ -59,6 +66,15 @@ public class Mission : MonoBehaviour
         //set mission type and subtype
         _type = type;
         _subtype = subtype;
+        _planet = planet;
+
+        //set the mission text
+        _missionText = "Lorem ipsum dolores blabla ceci est une phrase random";
+    }
+
+    public void MissionDone()
+    {
+        OnMissionDone(_id);
     }
 
     void Update()

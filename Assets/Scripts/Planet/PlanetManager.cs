@@ -43,11 +43,19 @@ public class PlanetManager : MonoBehaviour
         //Create Planets
         for(int i = 0; i < planetCount; i++)
         {
+
+
             GameObject planetPrefab = Instantiate(_planetPrefab, this.transform);
             //Assign a data
             Planet planet = planetPrefab.GetComponent<Planet>();
+
+            //pick a random planet data
+            int planetDataIndex = _planetDataBase.Data[Random.Range(0, _planetDataBase.Data.Count)]._id;
+
             planet.Data = _planetDataBase.Data[i];
+
             planet.gameObject.name = planet.Data._name;
+
             //Add in the List
             _planets.Add(planet);
         }
