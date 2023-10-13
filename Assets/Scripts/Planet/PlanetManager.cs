@@ -6,12 +6,15 @@ using UnityEngine;
 public class PlanetManager : MonoBehaviour
 {
     [Header("DataBase")]
-    [SerializeField] PlanetDataBase _planetDataBase;
+    [SerializeField] private PlanetDataBase _planetDataBase;
+    //public PlanetDataBase planetDataBase => _planetDataBase;
 
     [Header("Infos")]
     [SerializeField] GameObject _planetPrefab;
-    [SerializeField] int _planetMinNB = 1;
-    [SerializeField] int _planetMaxNB = 4;
+    [SerializeField] private int _planetMinNB = 1;
+    public int PlanetMinNB => _planetMinNB;
+    [SerializeField] private int _planetMaxNB = 4;
+    public int PlanetMaxNB => _planetMaxNB;
 
     [Header("Runtime")]
     [SerializeField] List<Planet> _planets = new List<Planet>();
@@ -27,7 +30,7 @@ public class PlanetManager : MonoBehaviour
         if (_planetMaxNB > _planetDataBase.Data.Count)
             _planetMaxNB = _planetDataBase.Data.Count;
 
-        NewPlanetSystem();
+        //NewPlanetSystem();
     }
 
     // Update is called once per frame

@@ -31,7 +31,7 @@ public class Planet : MonoBehaviour
         distanceToStation = Random.Range(500,2000);
 
         PlanetCoordinates coordinates = new PlanetCoordinates(Random.Range(1000,9999),Random.Range(1000,9999));
-        
+
         planetCoordinates = coordinates;
 
     }
