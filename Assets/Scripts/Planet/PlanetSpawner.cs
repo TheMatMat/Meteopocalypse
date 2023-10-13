@@ -9,11 +9,17 @@ using static UnityEditor.PlayerSettings;
 [RequireComponent(typeof(PlanetManager))]
 public class PlanetSpawner : MonoBehaviour
 {
+    [Header("Spawn Prameters")]
     [SerializeField] private float safeRadius = 3.5f;
+    [SerializeField] private float maxSpawnDistance = 50;
+    [Range(0.5f, 10)]
+    [SerializeField] private float minDistBtwPlanet = .5f;
 
+    [Header("Components")]
     [SerializeField] private PlanetManager pm;
 
     [SerializeField] GameObject planetPrefab;
+    [SerializeField] GameObject planetTemp;
     [SerializeField] GameObject SunTemp;
     [SerializeField] private GameObject station;
 
@@ -29,7 +35,7 @@ public class PlanetSpawner : MonoBehaviour
     }
 
     [Button("SPAWN A Galaxy !")]
-    private void SpawnGalaxy()
+    public void SpawnGalaxy()
     {
         sun = Instantiate(SunTemp, new Vector3(0,0,0), Quaternion.identity, transform);
 
@@ -38,12 +44,14 @@ public class PlanetSpawner : MonoBehaviour
         //Create Planets
         for (int i = 0; i < planetCount; i++)
         {
-            float _x = Random.Range(safeRadius, 50);
+            float _x = Random.Range(safeRadius, maxSpawnDistance);
+            _x = _x > -safeRadius && _x < safeRadius ? Random.Range(safeRadius, maxSpawnDistance) : _x;
 
-            _x = _x > -safeRadius && _x < safeRadius ? Random.Range(safeRadius, 50) : _x;
+            GameObject planetPrefab = Instantiate(planetTemp, new Vector3(_x, 0, 0), Quaternion.identity, transform);
 
-            GameObject planetPrefab = Instantiate(this.planetPrefab, new Vector3(_x, 0, 0), Quaternion.identity, transform);
-
+            SphereCollider col = planetPrefab.AddComponent<SphereCollider>();
+            col.radius = minDistBtwPlanet;
+            col.isTrigger = true;
 
             //Assign a data
             Planet planet = planetPrefab.GetComponent<Planet>();
@@ -54,6 +62,8 @@ public class PlanetSpawner : MonoBehaviour
 
             //Add in the List
             pm.Planets.Add(planet);
+
+            Destroy(col);
         }
 
         //Randomize Planet Position
@@ -76,21 +86,18 @@ public class PlanetSpawner : MonoBehaviour
     
         foreach (Planet planet in pm.Planets)
         {
-            float i = Random.Range(0, 2 * Mathf.PI);
 
-            float x = Mathf.Cos(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.x;
+            float theta = Random.Range(0, 360);
+
+            //CX + (r * cos(theta))
+            float x = sun.transform.position.x + (Vector3.Distance(sun.transform.position, planet.transform.position) * Mathf.Cos(theta));
             float y = sun.transform.position.y;
-            float z = Mathf.Sin(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.z;
+            //Cy + (r * Sin(theta))
+            float z = sun.transform.position.y + (Vector3.Distance(sun.transform.position, planet.transform.position) * Mathf.Sin(theta));
 
 
             Vector3 _pos = new Vector3(x, y, z);
-            //transform.position = _pos;
-
-            int rand = Random.Range(0, 2);
-            if (rand == 0)
-                planet.transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
-            
-            planet.GetComponent<PlanetsPhysics>().startMoving = true;
+            planet.transform.position = _pos;
         }
         Debug.Log("Radomize Position");
     }
@@ -104,5 +111,14 @@ public class PlanetSpawner : MonoBehaviour
         }
         pm.Planets.Clear();
         Destroy(sun);
+    }
+
+    [Button("SPIN ME ROUND")]
+    private void SpinPlanets()
+    {
+        foreach (Planet planet in pm.Planets)
+        {
+           planet.GetComponent<PlanetsPhysics>().startMoving = true;
+        }
     }
 }
