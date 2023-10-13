@@ -1,7 +1,10 @@
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(PlanetManager))]
 public class PlanetSpawner : MonoBehaviour
@@ -32,30 +35,51 @@ public class PlanetSpawner : MonoBehaviour
         //Create Planets
         for (int i = 0; i < planetCount; i++)
         {
-            int _x = Random.Range(-50, 50);
-            int _z = Random.Range(-50, 50);
+            float _x = Random.Range(safeRadius, 50);
 
-            _x = _x > -safeRadius && _x < safeRadius ? Random.Range(-50, 50) : _x;
-            _z = _z > -safeRadius && _x < safeRadius ? Random.Range(-50, 50) : _z;
+            _x = _x > -safeRadius && _x < safeRadius ? Random.Range(safeRadius, 50) : _x;
 
-            GameObject planetPrefab = Instantiate(planetTemp, new Vector3(_x, 0, _z), Quaternion.identity, transform);
+            GameObject planetPrefab = Instantiate(planetTemp, new Vector3(_x, 0, 0), Quaternion.identity, transform);
 
             //Assign a data
             Planet planet = planetPrefab.GetComponent<Planet>();
-            SetUpPlanet(planet);
+            //SetUpPlanet(planet);
 
-            //planet.Data = _planetDataBase.Data[i];
-            //planet.gameObject.name = planet.Data._name;
+            planet.Data = pm.PlanetDataBase.Data[i];
+            planet.gameObject.name = planet.Data._name;
 
             //Add in the List
             pm.Planets.Add(planet);
         }
+
+        //Randomize Planet Position
+        StartCoroutine(RandomizePosition());
     }
 
-    private void SetUpPlanet(Planet _planetToSetUp)
+    IEnumerator RandomizePosition()
     {
-        _planetToSetUp.Data._name = Time.time.ToString();
-        _planetToSetUp.SpinSpeed = Random.Range(5,25);
+        yield return new WaitForSeconds(1f);
+
+        foreach (Planet planet in pm.Planets)
+        {
+            float i = Random.Range(0, 2 * Mathf.PI);
+
+
+
+            float x = Mathf.Cos(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.x;
+            float y = sun.transform.position.y;
+            float z = Mathf.Sin(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.z;
+
+
+            Vector3 _pos = new Vector3(x, y, z);
+            //transform.position = _pos;
+
+            int rand = Random.Range(0, 2);
+            if (rand == 0)
+                planet.transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+            //planet.GetComponent<PlanetsPhysics>().startMoving = true;
+        }
+        Debug.Log("Radomize Position");
     }
 
     [Button("Reset the Galaxy !")]

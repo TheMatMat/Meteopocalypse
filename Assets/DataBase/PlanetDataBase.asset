@@ -41,3 +41,15 @@ MonoBehaviour:
       _longitude: 0
     _sprite: {fileID: 0}
     _gameObject: {fileID: 0}
+  - _name: Saturne
+    _sprite: {fileID: 0}
+    _gameObject: {fileID: 0}
+  - _name: Mercure
+    _sprite: {fileID: 0}
+    _gameObject: {fileID: 0}
+  - _name: Neptune
+    _sprite: {fileID: 0}
+    _gameObject: {fileID: 0}
+  - _name: "V\xE9nus"
+    _sprite: {fileID: 0}
+    _gameObject: {fileID: 0}
