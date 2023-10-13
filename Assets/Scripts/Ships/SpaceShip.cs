@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class SpaceShip : MonoBehaviour
 { 
@@ -19,8 +20,6 @@ public class SpaceShip : MonoBehaviour
     
     [SerializeField] private SpaceShipsEventRef spaceShipsEventRef;
 
-    public float distance; // A EFFACER REMPLACER PAR LA DISTANCE DE LA PLANETE
-
     private SpaceShipsEvents _spaceShipsEvent;
 
     private Image _spacesipUI;
@@ -33,13 +32,34 @@ public class SpaceShip : MonoBehaviour
     private float _timePassed;
     private bool _hasBeenSend;
 
+    public bool HasBeenSend
+    {
+        get => _hasBeenSend;
+        set => _hasBeenSend = value;
+    }
+
+    private float timeToAchieveTask;
+
+    public float TimeToAchieveTask
+    {
+        get => timeToAchieveTask;
+    }
+
     private List<MISSION_SUBTYPE> modules = new List<MISSION_SUBTYPE>();
 
+    public List<MISSION_SUBTYPE> Modules
+    {
+        get => modules;
+    }
 
+    [SerializeField] private GameObject spaceShipModel;
+    
     private void Start()
     {
         _spacesipUI = GetComponent<Image>();
         _spaceShipsEvent = spaceShipsEventRef.Instance;
+
+        timeToAchieveTask = UnityEngine.Random.Range(0, shipData.MaxTimeToAchieveTask);
 
     }
     private void Update()
@@ -52,9 +72,9 @@ public class SpaceShip : MonoBehaviour
             {
                 _hasBeenSend = false;
                 _timePassed = 0;
-                Arrive();
+                ArriveOnPlanet();
             }
-            
+
         }
     }
 
@@ -68,12 +88,14 @@ public class SpaceShip : MonoBehaviour
         _timeToReachPlanet = reachPlanet.DistanceToStation / shipData.ShipSpeed;
 
         Debug.Log("time " + _timeToReachPlanet);
+        // Spawn SpaceShip GameObject
+        
+        
         spaceShipsEventRef.Instance.SendSpaceShip(this);
         onSendSpaceShip?.Invoke();
-        
     }
 
-    public void Arrive()
+    public void ArriveOnPlanet()
     {
         Debug.Log("arrive");
 
@@ -83,14 +105,18 @@ public class SpaceShip : MonoBehaviour
         }
         else
         {
-            reachPlanet.ReceiveSpaceShip(modules);
+            reachPlanet.ReceiveSpaceShip(this);
         }
 
         _spaceShipsEvent.ArriveSpaceShip(this);
         onArriveSpaceShip?.Invoke();
     }
 
-    public void Return()
+    public void SendToStation()
+    {
+        
+    }
+    public void ArriveOnStation()
     {
         _spaceShipsEvent.ReturnSpaceShip(this);
         onReturnSpaceShip?.Invoke();

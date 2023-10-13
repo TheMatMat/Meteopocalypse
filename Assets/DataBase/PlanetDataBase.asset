@@ -15,41 +15,41 @@ MonoBehaviour:
   _data:
   - _id: 0
     _name: Terre
-    _planetCoordinates:
-      _latitude: 0
-      _longitude: 0
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
   - _id: 1
     _name: Mars
-    _planetCoordinates:
-      _latitude: 0
-      _longitude: 0
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
   - _id: 2
     _name: Jupiter
-    _planetCoordinates:
-      _latitude: 0
-      _longitude: 0
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
   - _id: 3
     _name: Uranus
-    _planetCoordinates:
-      _latitude: 0
-      _longitude: 0
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
-  - _name: Saturne
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
+  - _id: 0
+    _name: Saturne
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
-  - _name: Mercure
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
+  - _id: 0
+    _name: Mercure
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
-  - _name: Neptune
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
+  - _id: 0
+    _name: Neptune
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
-  - _name: "V\xE9nus"
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}
+  - _id: 0
+    _name: "V\xE9nus"
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 940e166aa8e2bf04d92f5e399c67aefa, type: 2}

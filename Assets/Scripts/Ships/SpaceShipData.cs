@@ -10,6 +10,7 @@ public class SpaceShipData : ScriptableObject
 
     [SerializeField] private float shipSpeed;
     [SerializeField] private float maxReachDistance;
+    [SerializeField] private float maxTimeToAchieveTask;
 
     [SerializeField] private int maxModule;
 
@@ -31,5 +32,10 @@ public class SpaceShipData : ScriptableObject
     public int MaxModule
     {
         get => maxModule;
+    }
+
+    public float MaxTimeToAchieveTask
+    {
+        get => maxTimeToAchieveTask;
     }
 }

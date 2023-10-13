@@ -281,7 +281,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5436414952903833952}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 0}
 --- !u!23 &152445743670584248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -385,10 +385,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
+    _id: 0
     _name: 
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 0}
+    _planetMat: {fileID: 0}
   _missions: []
+  distanceToStation: 0
+  planetCoordinates:
+    _latitude: 0
+    _longitude: 0
 --- !u!114 &-2364813883164605755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,3 +407,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86c8c8a7e50bfa4caece8b9a2f598ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMoving: 0
+  speedBounds: 10

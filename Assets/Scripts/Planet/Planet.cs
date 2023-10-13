@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class Planet : MonoBehaviour
+public class Planet : CoroutineSystem
 {
     [SerializeField] PlanetData _data;
     public PlanetData Data { get { return _data; } set { _data = value;  } }
@@ -21,6 +23,8 @@ public class Planet : MonoBehaviour
     {
         get => _missions;
     }
+    
+    
 
 
     public PlanetCoordinates planetCoordinates;
@@ -29,12 +33,16 @@ public class Planet : MonoBehaviour
     private void Awake()
     {
         distanceToStation = Random.Range(500,2000);
-
         PlanetCoordinates coordinates = new PlanetCoordinates(Random.Range(1000,9999),Random.Range(1000,9999));
-
         planetCoordinates = coordinates;
-
     }
+
+    private void Start()
+    {
+        GetComponent<MeshFilter>().mesh = _data._planetMesh;
+        GetComponent<MeshRenderer>().material = _data._planetMat;
+    }
+
 
     public void AssignMission(Mission mission)
     {
@@ -56,23 +64,35 @@ public class Planet : MonoBehaviour
         {
             Debug.Log(mission.Subtype);
         }
+
+        DoMission(spaceShip);
     }
 
-    public void ReceiveSpaceShip(List<MISSION_SUBTYPE> subtypes)
+    public void ReceiveSpaceShip(SpaceShip spaceShip)
     {
         foreach(Mission mission in _missions.ToList())
         {
-            foreach(MISSION_SUBTYPE subtype in subtypes.ToList())
+            foreach(MISSION_SUBTYPE subtype in spaceShip.Modules.ToList())
             {
                 if(mission.Subtype == subtype)
                 {
                     _missions.Remove(mission);
-                    subtypes.Remove(subtype);
+                    spaceShip.Modules.Remove(subtype);
                     Debug.Log("Mission done");
                     mission.MissionDone();
                 }
             }
         }
+        
+        DoMission(spaceShip);
+    }
+
+    private void DoMission(SpaceShip spaceShip)
+    {
+        RunDelayed(spaceShip.TimeToAchieveTask, () =>
+        {
+            
+        });
     }
 }
 
@@ -82,7 +102,8 @@ public class PlanetData
     public int _id;
     public string _name;
     public Sprite _sprite;
-    public GameObject _gameObject;
+    public Mesh _planetMesh;
+    public Material _planetMat;
 }
 
 [System.Serializable]

@@ -13,8 +13,9 @@ public class PlanetSpawner : MonoBehaviour
 
     [SerializeField] private PlanetManager pm;
 
-    [SerializeField] GameObject planetTemp;
+    [SerializeField] GameObject planetPrefab;
     [SerializeField] GameObject SunTemp;
+    [SerializeField] private GameObject station;
 
     private GameObject sun;
 
@@ -23,6 +24,8 @@ public class PlanetSpawner : MonoBehaviour
     {
         if (pm == null)
             Debug.LogError("MISSING PLANET MANAGER");
+        
+        SpawnGalaxy();
     }
 
     [Button("SPAWN A Galaxy !")]
@@ -39,7 +42,8 @@ public class PlanetSpawner : MonoBehaviour
 
             _x = _x > -safeRadius && _x < safeRadius ? Random.Range(safeRadius, 50) : _x;
 
-            GameObject planetPrefab = Instantiate(planetTemp, new Vector3(_x, 0, 0), Quaternion.identity, transform);
+            GameObject planetPrefab = Instantiate(this.planetPrefab, new Vector3(_x, 0, 0), Quaternion.identity, transform);
+
 
             //Assign a data
             Planet planet = planetPrefab.GetComponent<Planet>();
@@ -54,17 +58,25 @@ public class PlanetSpawner : MonoBehaviour
 
         //Randomize Planet Position
         StartCoroutine(RandomizePosition());
+
+        float randomDistance = Random.Range(sun.transform.position.x,pm.Planets[pm.Planets.Count - 1].transform.position.x);
+        float randomSideDistance = Random.Range(-randomDistance, randomDistance);
+        
+        Vector3 stationPosition = sun.transform.position;
+        stationPosition.x += randomSideDistance;
+        stationPosition.y += 20;
+
+        Instantiate(station, stationPosition, Quaternion.identity, transform);
+                
     }
 
     IEnumerator RandomizePosition()
     {
         yield return new WaitForSeconds(1f);
-
+    
         foreach (Planet planet in pm.Planets)
         {
             float i = Random.Range(0, 2 * Mathf.PI);
-
-
 
             float x = Mathf.Cos(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.x;
             float y = sun.transform.position.y;
@@ -77,7 +89,8 @@ public class PlanetSpawner : MonoBehaviour
             int rand = Random.Range(0, 2);
             if (rand == 0)
                 planet.transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
-            //planet.GetComponent<PlanetsPhysics>().startMoving = true;
+            
+            planet.GetComponent<PlanetsPhysics>().startMoving = true;
         }
         Debug.Log("Radomize Position");
     }

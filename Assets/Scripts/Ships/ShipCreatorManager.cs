@@ -28,7 +28,11 @@ public class ShipCreatorManager : MonoBehaviour
 
     [SerializeField] private InputActionProperty back;
     [SerializeField] private InputActionProperty send;
-    [SerializeField] private TMP_InputField planetFieldObject;
+    [SerializeField] private TMP_InputField coordsField;
+    [SerializeField] private GameObject coordsPanel;
+    
+    
+    
     [SerializeField] private UnityEvent closeMenu;
 
     private NavigationSystem CurrentNavigation
@@ -71,13 +75,18 @@ public class ShipCreatorManager : MonoBehaviour
     {
         _targetShip = clickedShip.GetComponent<SpaceShip>();
 
-        if(_targetShip.ShipData.MaxModule == 0)
+        if (_targetShip.HasBeenSend)
         {
             return;
         }
-
-        GetComponent<Image>().enabled = true;
-        moduleParent.gameObject.SetActive(true);
+        
+        coordsPanel.SetActive(true);
+            
+        if(_targetShip.ShipData.MaxModule > 0)
+        {
+            GetComponent<Image>().enabled = true;
+            moduleParent.gameObject.SetActive(true);
+        }
 
         for (int i = 0; i < _targetShip.ShipData.MaxModule; i++)
         {
@@ -216,7 +225,7 @@ public class ShipCreatorManager : MonoBehaviour
                 else
                 {
                     // Disable tt les boutons et enlever le Select()
-                    planetFieldObject.Select();
+                    coordsField.Select();
                 }
 
                 Debug.Log("index " + index);
@@ -255,7 +264,7 @@ public class ShipCreatorManager : MonoBehaviour
 
     private void OnSendSpaceShip(InputAction.CallbackContext e)
     {
-        OnTryToSend(planetFieldObject.text);
+        OnTryToSend(coordsField.text);
         CloseMenu();
     }
 

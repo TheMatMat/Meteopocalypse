@@ -7,10 +7,12 @@ public class PlanetsPhysics : MonoBehaviour
     private int spinSpeed;
     public bool startMoving = false;
 
+    public int speedBounds;
+
     // Start is called before the first frame update
     void Start()
     {
-        spinSpeed = Random.Range(-25, 25);
+        spinSpeed = Random.Range(-speedBounds, speedBounds);
     }
 
     // Update is called once per frame
@@ -22,7 +24,7 @@ public class PlanetsPhysics : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("PLANET ONE ON ANOTHER");
+//        Debug.Log("PLANET ONE ON ANOTHER");
 
         float _x = transform.position.x;
         _x = Random.Range(3.5f, 50);

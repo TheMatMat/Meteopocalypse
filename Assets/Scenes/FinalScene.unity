@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 17182062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -36.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -481,6 +481,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6081502e-d808-406f-a0e4-99a81bca595d
     m_ActionName: UI/Back[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 314d0d15-e142-493d-b3bc-77cad20cc7a5
+    m_ActionName: UI/SendSpaceShip[/Keyboard/i]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -576,18 +580,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &329382909
 MonoBehaviour:
@@ -755,7 +747,8 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -8265100886990308674, guid: bcd076b4cb569324dbb8272c86e46558,
       type: 3}
-  planetFieldObject: {fileID: 800797143}
+  coordsField: {fileID: 800797143}
+  coordsPanel: {fileID: 800797144}
   closeMenu:
     m_PersistentCalls:
       m_Calls:
@@ -1163,18 +1156,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &519704436
 MonoBehaviour:
@@ -1794,18 +1775,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &811926345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,7 +1979,7 @@ Transform:
   m_GameObject: {fileID: 831066353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 5266, y: 1451, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2116,6 +2085,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4100970750351869321, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
+        type: 3}
+      propertyPath: station
+      value: 
+      objectReference: {fileID: 3520472510016773646, guid: 5a7a412c7e2648a46be860188099aaae,
+        type: 3}
+    - target: {fileID: 4100970750351869321, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
+        type: 3}
+      propertyPath: planetPrefab
+      value: 
+      objectReference: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
     - target: {fileID: 4766538594149253378, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
       propertyPath: _planetMaxNB
@@ -2126,6 +2107,12 @@ PrefabInstance:
       propertyPath: _planetMinNB
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4766538594149253378, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
+        type: 3}
+      propertyPath: _planetPrefab
+      value: 
+      objectReference: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
     - target: {fileID: 7685128331873094850, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
       propertyPath: m_Name
@@ -2134,17 +2121,17 @@ PrefabInstance:
     - target: {fileID: 8132886034023183106, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 433.41086
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132886034023183106, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 120.873474
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132886034023183106, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2844203
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8132886034023183106, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
         type: 3}
@@ -2362,18 +2349,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1575943853
 MonoBehaviour:
@@ -2637,18 +2612,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1850324439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,18 +2769,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 800797144}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1968900637
 MonoBehaviour:

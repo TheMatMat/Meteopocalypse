@@ -356,7 +356,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
+    _id: 0
     _name: 
     _sprite: {fileID: 0}
-    _gameObject: {fileID: 0}
+    _planetMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    _planetMat: {fileID: 2100000, guid: 1a84459c688ed46459abfd58a98c3c27, type: 2}
   _missions: []
+  distanceToStation: 0
+  planetCoordinates:
+    _latitude: 0
+    _longitude: 0

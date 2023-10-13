@@ -30,7 +30,7 @@ public class PlanetManager : MonoBehaviour
         if (_planetMaxNB > _planetDataBase.Data.Count)
             _planetMaxNB = _planetDataBase.Data.Count;
 
-        //NewPlanetSystem();
+      //  NewPlanetSystem();
     }
 
     // Update is called once per frame
