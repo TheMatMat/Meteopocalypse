@@ -7,8 +7,9 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class SpaceShip : MonoBehaviour
-{ 
+{
 
+    [SerializeField] private PlanetSpawner spawner;
     [SerializeField] private Planet reachPlanet;
 
     [SerializeField] private SpaceShipData shipData;
@@ -20,6 +21,8 @@ public class SpaceShip : MonoBehaviour
     
     [SerializeField] private SpaceShipsEventRef spaceShipsEventRef;
 
+    [SerializeField] private GameObject spaceShipModel;
+    
     private SpaceShipsEvents _spaceShipsEvent;
 
     private Image _spacesipUI;
@@ -52,7 +55,6 @@ public class SpaceShip : MonoBehaviour
         get => modules;
     }
 
-    [SerializeField] private GameObject spaceShipModel;
     
     private void Start()
     {
@@ -64,7 +66,7 @@ public class SpaceShip : MonoBehaviour
     }
     private void Update()
     {
-        if (_hasBeenSend)
+       /* if (_hasBeenSend)
         {
             _timePassed += Time.deltaTime;
 
@@ -76,6 +78,7 @@ public class SpaceShip : MonoBehaviour
             }
 
         }
+        */
     }
 
     public void Send(Planet planet)
@@ -85,11 +88,13 @@ public class SpaceShip : MonoBehaviour
         Debug.Log("send");
         _hasBeenSend = true; 
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 0.3f);
-        _timeToReachPlanet = reachPlanet.DistanceToStation / shipData.ShipSpeed;
+        //_timeToReachPlanet = reachPlanet.DistanceToStation / shipData.ShipSpeed;
 
         Debug.Log("time " + _timeToReachPlanet);
         // Spawn SpaceShip GameObject
         
+        GameObject spaceShip = Instantiate(spaceShipModel,spawner.Station.transform.position,Quaternion.identity,planet.transform);
+        spaceShip.GetComponent<SpaceShipMovement>().TimeToGo = Vector3.Distance(spaceShip.transform.position, planet.transform.position) / 100;
         
         spaceShipsEventRef.Instance.SendSpaceShip(this);
         onSendSpaceShip?.Invoke();

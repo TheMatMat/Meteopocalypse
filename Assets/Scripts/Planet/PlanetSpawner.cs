@@ -25,6 +25,13 @@ public class PlanetSpawner : MonoBehaviour
 
     private GameObject sun;
 
+    private GameObject stationInstance;
+
+    public GameObject Station
+    {
+        get => stationInstance;
+    }
+
 
     private void Start()
     {
@@ -76,7 +83,7 @@ public class PlanetSpawner : MonoBehaviour
         stationPosition.x += randomSideDistance;
         stationPosition.y += 20;
 
-        Instantiate(station, stationPosition, Quaternion.identity, transform);
+        stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);
                 
     }
 

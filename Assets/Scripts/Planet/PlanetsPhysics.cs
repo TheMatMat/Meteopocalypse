@@ -22,7 +22,6 @@ public class PlanetsPhysics : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("PLANET ONE ON ANOTHER");
         if(other.gameObject.tag == "Planet")
         {
             float _x = Random.Range(3.5f, 50);

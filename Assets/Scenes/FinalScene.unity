@@ -623,10 +623,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -1199,10 +1201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -1817,10 +1821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -2185,6 +2191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa2f1b8767ab5b84e83e3c9dd7c4a162, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &998920247 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4100970750351869321, guid: cbe62196eac7ddf4ea5fc19c4d66781f,
+    type: 3}
+  m_PrefabInstance: {fileID: 998920245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1aac1ac90d64954b91d509ed5c326c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1358768685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,10 +2410,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -2654,10 +2674,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -2812,10 +2834,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 998920247}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
