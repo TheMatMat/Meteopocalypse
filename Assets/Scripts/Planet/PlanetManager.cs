@@ -7,7 +7,7 @@ public class PlanetManager : MonoBehaviour
 {
     [Header("DataBase")]
     [SerializeField] private PlanetDataBase _planetDataBase;
-    //public PlanetDataBase planetDataBase => _planetDataBase;
+    public PlanetDataBase PlanetDataBase => _planetDataBase;
 
     [Header("Infos")]
     [SerializeField] GameObject _planetPrefab;
