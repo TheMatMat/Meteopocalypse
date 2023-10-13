@@ -26,7 +26,7 @@ public class PlanetSpawner : MonoBehaviour
     }
 
     [Button("SPAWN A Galaxy !")]
-    private void SpawnGalaxy()
+    public void SpawnGalaxy()
     {
         sun = Instantiate(SunTemp, new Vector3(0,0,0), Quaternion.identity, transform);
 
@@ -62,21 +62,23 @@ public class PlanetSpawner : MonoBehaviour
 
         foreach (Planet planet in pm.Planets)
         {
-            float i = Random.Range(0, 2 * Mathf.PI);
 
+            float theta = Random.Range(0, 360);
 
-
-            float x = Mathf.Cos(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.x;
+            //CX + (r * cos(theta))
+            float x = sun.transform.position.x + (Vector3.Distance(sun.transform.position, planet.transform.position) * Mathf.Cos(theta));
             float y = sun.transform.position.y;
-            float z = Mathf.Sin(i) * Vector3.Distance(sun.transform.position, planet.transform.position) + transform.position.z;
+            //Cy + (r * Sin(theta))
+            float z = sun.transform.position.y + (Vector3.Distance(sun.transform.position, planet.transform.position) * Mathf.Sin(theta));
+            Debug.Log(planet.gameObject.name + " : " + z);
 
 
             Vector3 _pos = new Vector3(x, y, z);
-            //transform.position = _pos;
+            planet.transform.position = _pos;
 
             int rand = Random.Range(0, 2);
-            if (rand == 0)
-                planet.transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+            //if (rand == 0)
+            //    planet.transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
             //planet.GetComponent<PlanetsPhysics>().startMoving = true;
         }
         Debug.Log("Radomize Position");
@@ -91,5 +93,25 @@ public class PlanetSpawner : MonoBehaviour
         }
         pm.Planets.Clear();
         Destroy(sun);
+    }
+
+    [Button("SPIN ME ROUND")]
+    private void SpinPlanets()
+    {
+        foreach (Planet planet in pm.Planets)
+        {
+           planet.GetComponent<PlanetsPhysics>().startMoving = true;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = UnityEngine.Color.red;
+        foreach (Planet planet in pm.Planets)
+        {
+            float _pos = Vector3.Distance(sun.transform.position, planet.transform.position);
+            Gizmos.DrawSphere(transform.position, _pos);
+        }
     }
 }
