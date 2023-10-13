@@ -152,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8549002808103160974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: -2364813883164605755}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,3 +401,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86c8c8a7e50bfa4caece8b9a2f598ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMoving: 0

@@ -10,7 +10,7 @@ public class PlanetsPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spinSpeed = Random.Range(-25, 25);
+        spinSpeed = Random.Range(-5, 5);
     }
 
     // Update is called once per frame
@@ -23,9 +23,10 @@ public class PlanetsPhysics : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Debug.Log("PLANET ONE ON ANOTHER");
-
-        float _x = transform.position.x;
-        _x = Random.Range(3.5f, 50);
-        transform.position = new Vector3(_x, transform.position.y, transform.position.z);
+        if(other.gameObject.tag == "Planet")
+        {
+            float _x = Random.Range(3.5f, 50);
+            transform.position = new Vector3(_x, transform.position.y, transform.position.z);
+        }
     }
 }
