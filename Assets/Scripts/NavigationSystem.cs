@@ -40,15 +40,18 @@ public class NavigationSystem : MonoBehaviour
             }
         }
     }
-    
-    
+
+    private bool _isBlocked;
+
+    public bool IsBlocked
+    {
+        get => _isBlocked;
+        set => _isBlocked = value;
+    }
+
     private void Start()
     {
-        navigations[0].action.started += OnRight;
-        navigations[1].action.started += OnDown;
-        navigations[2].action.started += OnLeft;
-        navigations[3].action.started += OnTop;
-
+        EnableNavigation();
         _lastDirection = 3;
         
         navigationButtons[CurrentSelectedButton].Select();
@@ -56,14 +59,35 @@ public class NavigationSystem : MonoBehaviour
 
     private void OnDisable()
     {
+        DisableNavigation();
+    }
+
+    public void EnableNavigation()
+    {
+        navigations[0].action.started += OnRight;
+        navigations[1].action.started += OnDown;
+        navigations[2].action.started += OnLeft;
+        navigations[3].action.started += OnTop;
+    }
+
+    public void DisableNavigation()
+    {
+        
         navigations[0].action.started -= OnRight;
         navigations[1].action.started -= OnDown;
         navigations[2].action.started -= OnLeft;
-        navigations[3].action.started -= OnTop;
+        navigations[3].action.started -= OnTop;    
     }
-
+    
     private void OnRight(InputAction.CallbackContext e)
     { // 0 
+        
+        Debug.Log("right ");
+        if (_isBlocked)
+        {
+            return;
+        }
+        
         switch (_lastDirection)
         {
             case 3:
@@ -79,7 +103,12 @@ public class NavigationSystem : MonoBehaviour
     }
 
     private void OnDown(InputAction.CallbackContext e)
-    {   
+    {  
+        if (_isBlocked)
+        {
+            return;
+        }
+        
         switch (_lastDirection)
         {
             case 0:
@@ -96,6 +125,11 @@ public class NavigationSystem : MonoBehaviour
 
     private void OnLeft(InputAction.CallbackContext e)
     {
+        if (_isBlocked)
+        {
+            return;
+        }
+        
         switch (_lastDirection)
         {
             case 1:
@@ -112,6 +146,11 @@ public class NavigationSystem : MonoBehaviour
 
     private void OnTop(InputAction.CallbackContext e)
     {
+        if (_isBlocked)
+        {
+            return;
+        }
+        
         switch (_lastDirection)
         {
             case 2:

@@ -54,6 +54,8 @@ public class ShipCreatorManager : MonoBehaviour
     private TypeManager _typeManager;
     private int _action;
 
+    private NavigationSystem _startNavigation;
+
 
 
     private void Start()
@@ -61,6 +63,7 @@ public class ShipCreatorManager : MonoBehaviour
         _typeManager = typeManagerRef.Instance;
         back.action.started += OnBack;
         send.action.started += OnSendSpaceShip;
+        
         
     }
 
@@ -91,6 +94,9 @@ public class ShipCreatorManager : MonoBehaviour
         else
         {
             coordsField.Select();
+            _startNavigation = currentNavigation;
+           // _startNavigation.IsBlocked = true;
+           _startNavigation.DisableNavigation();
         }
 
         for (int i = 0; i < moduleParent.transform.childCount; i++)
@@ -284,9 +290,16 @@ public class ShipCreatorManager : MonoBehaviour
             if (planet.planetCoordinates.ToString() == coordinates)
             {
                 TargetShip.Send(planet);
+                
                 break;
             }
         }
+        
+        if (_startNavigation != null)
+        {
+            _startNavigation.EnableNavigation();
+        }
+        Debug.Log("renable navigation");
     }
 
     private void CloseMenu()

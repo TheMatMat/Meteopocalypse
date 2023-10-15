@@ -14,19 +14,8 @@ public class CoordinatesFieldEncoder : MonoBehaviour
         if(coordinates.Length == coordinateSize)
         {
             coordinates += "-";
+            input.text = coordinates;
+            input.MoveTextEnd(false);
         }
-        else
-        {
-            if (coordinates.Length < coordinateSize)
-            {
-                if (coordinates.Contains("-"))
-                {
-                    coordinates = coordinates.Remove(coordinates.IndexOf("-"));
-                }
-            }
-        }
-
-        input.text = coordinates;
-       // input.MoveToEndOfLine(false,false);
     }
 }
