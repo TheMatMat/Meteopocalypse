@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Random = System.Random;
 
-public class SpaceShip : MonoBehaviour
+public class SpaceShip : CoroutineSystem
 {
 
     [SerializeField] private PlanetSpawner spawner;
+    [SerializeField] private SpaceShipSpawner shipSpawner;
+    
     [SerializeField] private Planet reachPlanet;
 
     [SerializeField] private SpaceShipData shipData;
@@ -55,32 +56,25 @@ public class SpaceShip : MonoBehaviour
         get => modules;
     }
 
+    public Planet ReachPlanet
+    {
+        get => reachPlanet;
+        set => reachPlanet = value;
+    }
+
+    private SpaceShipMovement _shipMovement;
+    
     
     private void Start()
     {
         _spacesipUI = GetComponent<Image>();
         _spaceShipsEvent = spaceShipsEventRef.Instance;
 
-        timeToAchieveTask = UnityEngine.Random.Range(0, shipData.MaxTimeToAchieveTask);
+        timeToAchieveTask = UnityEngine.Random.Range(shipData.MinTimeToAchieveTask, shipData.MaxTimeToAchieveTask);
 
     }
-    private void Update()
-    {
-       /* if (_hasBeenSend)
-        {
-            _timePassed += Time.deltaTime;
 
-            if (_timePassed >= _timeToReachPlanet)
-            {
-                _hasBeenSend = false;
-                _timePassed = 0;
-                ArriveOnPlanet();
-            }
-
-        }
-        */
-    }
-
+    
     public void Send(Planet planet)
     {
         reachPlanet = planet;
@@ -88,13 +82,15 @@ public class SpaceShip : MonoBehaviour
         Debug.Log("send");
         _hasBeenSend = true; 
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 0.3f);
-        //_timeToReachPlanet = reachPlanet.DistanceToStation / shipData.ShipSpeed;
 
-        Debug.Log("time " + _timeToReachPlanet);
-        // Spawn SpaceShip GameObject
-        
-        GameObject spaceShip = Instantiate(spaceShipModel,spawner.Station.transform.position,Quaternion.identity,planet.transform);
-        spaceShip.GetComponent<SpaceShipMovement>().TimeToGo = Vector3.Distance(spaceShip.transform.position, planet.transform.position) / 100;
+        if (_shipMovement == null)
+        {
+            _shipMovement = shipSpawner.SpawnSpaceShip(this);
+        }
+        else
+        {
+            ActualizeDestination(reachPlanet.transform);
+        }
         
         spaceShipsEventRef.Instance.SendSpaceShip(this);
         onSendSpaceShip?.Invoke();
@@ -106,23 +102,32 @@ public class SpaceShip : MonoBehaviour
 
         if (modules.Count == 0)
         {
-            reachPlanet.ReceiveSonde(this);
+            reachPlanet.ReceiveSonde();
         }
         else
         {
             reachPlanet.ReceiveSpaceShip(this);
         }
-
+        
         _spaceShipsEvent.ArriveSpaceShip(this);
         onArriveSpaceShip?.Invoke();
+
+        RunDelayed(timeToAchieveTask, () =>
+        {
+            SendToStation();
+        });
     }
 
-    public void SendToStation()
+    private void SendToStation()
     {
-        
+        Debug.Log("send to station");
+        ActualizeDestination(spawner.Station.transform);
     }
+    
     public void ArriveOnStation()
     {
+        Debug.Log("arrive on station");
+        _hasBeenSend = false;
         _spaceShipsEvent.ReturnSpaceShip(this);
         onReturnSpaceShip?.Invoke();
     }
@@ -131,5 +136,12 @@ public class SpaceShip : MonoBehaviour
     {
         modules.Add(module);
         Debug.Log("add module " + module + " to space ship");
+    }
+
+    private void ActualizeDestination(Transform destination)
+    {
+        _shipMovement.gameObject.transform.parent = destination;
+        _shipMovement.TimeToGo = Vector3.Distance(_shipMovement.transform.position,destination.position) / 2;
+        _shipMovement.GoToPlanet();
     }
 }

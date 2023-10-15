@@ -10,16 +10,21 @@ public class DayManager : MonoBehaviour
     [SerializeField] private int missionPerDay;
 
     [SerializeField] private MissionManager missionManager;
+    [SerializeField] private PlanetSpawner spawner;
 
-    private void Start()
+    public DayState State
     {
-        missionManager.OnMissionFinished += OnMissionFinished;
+        get => state;
     }
 
-    private void OnDestroy()
+    public int MissionPerDay
     {
-        missionManager.OnMissionFinished -= OnMissionFinished;
+        get => missionPerDay;
     }
+
+    private void Start() => missionManager.OnMissionFinished += OnMissionFinished;
+    private void OnDestroy() => missionManager.OnMissionFinished -= OnMissionFinished;
+    
 
     private void Update()
     {
@@ -38,11 +43,13 @@ public class DayManager : MonoBehaviour
 
     private void OnMissionFinished()
     {
-        if(missionManager.Missions.Count == missionPerDay)
+        if(missionManager.DailyMissions.Count == missionPerDay)
         {
             // Change day
+            Debug.Log("change day");
             dayCount++;
             missionManager.ClearMission();
+            spawner.ResetGalaxy();
             state = DayState.SUMMARY;
         }
     }

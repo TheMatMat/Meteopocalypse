@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public enum MISSION_TYPE
 {
@@ -34,6 +35,7 @@ public class Mission : MonoBehaviour
     static int _missionCount = 0;
 
     [SerializeField] int _id;
+    [SerializeField] string _headerText;
     [SerializeField] string _missionText;
     [SerializeField] float maxTime;
     [SerializeField] float _remainingTime; // in seconds
@@ -42,8 +44,17 @@ public class Mission : MonoBehaviour
     [SerializeField] Planet _planet;
     [SerializeField] Notification _notification;
 
+    private bool _isFinished;
+
+    public bool IsFinished
+    {
+        get => _isFinished;
+        set => _isFinished = value;
+    }
+
     //Properties
     public int ID { get { return _id; } }
+    public string HeaderText { get; }
     public string MissionText { get { return _missionText; } }
     public MISSION_TYPE Type { get { return _type; } }
     public MISSION_SUBTYPE Subtype { get { return _subtype; } }
@@ -64,7 +75,7 @@ public class Mission : MonoBehaviour
         _missionCount++;
 
         //set timer
-        maxTime = UnityEngine.Random.Range(90f, 120f); // in seconds
+        maxTime = Random.Range(40,50); // in seconds
         _remainingTime = maxTime;
         //set mission type and subtype
         _type = type;

@@ -47,7 +47,7 @@ public class Notification : MonoBehaviour
 
     public void MoveUp(float deltaY, float time)
     {
-        Debug.Log(_rectTransform.localPosition.y + " - " + deltaY);
+       // Debug.Log(_rectTransform.localPosition.y + " - " + deltaY);
         float endPosY = _rectTransform.localPosition.y + deltaY;
         _rectTransform.DOLocalMoveY(endPosY, time);
     }

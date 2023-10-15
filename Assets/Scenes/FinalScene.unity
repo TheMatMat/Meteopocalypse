@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 17182064}
   - component: {fileID: 17182063}
   - component: {fileID: 17182066}
+  - component: {fileID: 17182067}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -183,7 +184,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 59.805138
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -209,13 +210,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17182062}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -36.7}
+  m_LocalRotation: {x: 0.28474995, y: -0, z: -0, w: 0.9586019}
+  m_LocalPosition: {x: 0, y: 33.3, z: -36.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 33.088, y: 0, z: 0}
 --- !u!114 &17182066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +261,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &17182067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17182062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8caa88b71d3ab64198d6ecafce2a65a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61138444
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,6 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -804,6 +818,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405149548}
   m_CullTransparentMesh: 1
+--- !u!1 &446273518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446273519}
+  - component: {fileID: 446273520}
+  m_Layer: 0
+  m_Name: DayManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446273519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446273518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446273520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446273518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6848731a451d4bc419e56bf150b18a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 1
+  dayCount: 0
+  missionPerDay: 4
+  missionManager: {fileID: 798226765}
+  spawner: {fileID: 998920247}
 --- !u!1 &490986626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -1312,6 +1376,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
+      propertyPath: dayManager
+      value: 
+      objectReference: {fileID: 446273520}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
       propertyPath: _missionPrefab
       value: 
       objectReference: {fileID: 3586460624658792136, guid: 594cab898cbadf9459e00ca72640aab5,
@@ -1334,12 +1403,12 @@ PrefabInstance:
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
       propertyPath: maxNewMissionCooldown
-      value: 13
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
       propertyPath: minNewMissionCooldown
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
@@ -1549,6 +1618,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c4bc99ec4d5c424a8564fcdb3f1b7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &798226765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+    type: 3}
+  m_PrefabInstance: {fileID: 692815055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315f45c810ee9da469f3ac6262a2db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &800797141
@@ -1822,6 +1903,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -2411,6 +2493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -2452,6 +2535,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 280, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1601811720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601811721}
+  - component: {fileID: 1601811722}
+  m_Layer: 0
+  m_Name: SpaceShipSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601811721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601811720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1601811722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601811720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecd99b1ea11b8241a35a1c703ed62d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pm: {fileID: 998920247}
+  vaisseau: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+    type: 3}
 --- !u!1 &1804823042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -2835,6 +2966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 998920247}
+  shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
@@ -2891,3 +3023,5 @@ SceneRoots:
   - {fileID: 638851550}
   - {fileID: 152144968}
   - {fileID: 1358768688}
+  - {fileID: 1601811721}
+  - {fileID: 446273519}

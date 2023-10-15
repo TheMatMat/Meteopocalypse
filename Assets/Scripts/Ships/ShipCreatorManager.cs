@@ -61,6 +61,7 @@ public class ShipCreatorManager : MonoBehaviour
         _typeManager = typeManagerRef.Instance;
         back.action.started += OnBack;
         send.action.started += OnSendSpaceShip;
+        
     }
 
     private void OnDestroy()
@@ -86,6 +87,15 @@ public class ShipCreatorManager : MonoBehaviour
         {
             GetComponent<Image>().enabled = true;
             moduleParent.gameObject.SetActive(true);
+        }
+        else
+        {
+            coordsField.Select();
+        }
+
+        for (int i = 0; i < moduleParent.transform.childCount; i++)
+        {
+            Destroy(moduleParent.transform.GetChild(i).gameObject);
         }
 
         for (int i = 0; i < _targetShip.ShipData.MaxModule; i++)
@@ -227,8 +237,6 @@ public class ShipCreatorManager : MonoBehaviour
                     // Disable tt les boutons et enlever le Select()
                     coordsField.Select();
                 }
-
-                Debug.Log("index " + index);
 
                 _action = 0;
                 break;

@@ -58,14 +58,17 @@ public class Planet : CoroutineSystem
         }
     }
 
-    public void ReceiveSonde(SpaceShip spaceShip)
+    public List<string> ReceiveSonde()
     {
+        List<string> returnResults = new List<string>();
+        
         foreach(Mission mission in _missions)
         {
-            Debug.Log(mission.Subtype);
+            Debug.Log("sonde " + mission.Subtype);
+            returnResults.Add(mission.MissionText);
         }
 
-        DoMission(spaceShip);
+        return returnResults;
     }
 
     public void ReceiveSpaceShip(SpaceShip spaceShip)
@@ -74,26 +77,16 @@ public class Planet : CoroutineSystem
         {
             foreach(MISSION_SUBTYPE subtype in spaceShip.Modules.ToList())
             {
-                if(mission.Subtype == subtype)
+                if(mission.Subtype == subtype && !mission.IsFinished)
                 {
-                    _missions.Remove(mission);
-                    spaceShip.Modules.Remove(subtype);
+                    mission.IsFinished = true;
                     Debug.Log("Mission done");
                     mission.MissionDone();
                 }
             }
         }
-        
-        DoMission(spaceShip);
     }
 
-    private void DoMission(SpaceShip spaceShip)
-    {
-        RunDelayed(spaceShip.TimeToAchieveTask, () =>
-        {
-            
-        });
-    }
 }
 
 [System.Serializable]

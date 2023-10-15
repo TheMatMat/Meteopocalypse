@@ -16,7 +16,7 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private float minNewMissionCooldown;
     [SerializeField] private float maxNewMissionCooldown;
     [SerializeField] private List<MissionResult> dailyMissions = new List<MissionResult>();
-
+    [SerializeField] private DayManager dayManager;
 
     public List<Mission> Missions
     {
@@ -39,12 +39,21 @@ public class MissionManager : MonoBehaviour
     [Button("Create a Mission")]
     void CreateNewMission()
     {
+        if (dayManager.State != DayState.IN_DAY)
+        {
+            return;   
+        }
+        
         if(_missions.Count > maxMissionSimultaneously)
         {
             return;
         }
 
-
+        if (_missions.Count > dayManager.MissionPerDay)
+        {
+            return;
+        }
+        
         // random type and subtype
         int randomType = UnityEngine.Random.Range(0, (int)MISSION_TYPE.NB_VALUES);
         int randomSubtype = UnityEngine.Random.Range(randomType * 3, randomType * 3 + 2);
@@ -110,6 +119,7 @@ public class MissionManager : MonoBehaviour
         }
 
         OnMissionFinished?.Invoke();
+        
     }
 
     public void ClearMission()

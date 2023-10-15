@@ -15,4 +15,6 @@ MonoBehaviour:
   sprite: {fileID: 0}
   shipSpeed: 100
   maxReachDistance: 10000
+  minTimeToAchieveTask: 2
+  maxTimeToAchieveTask: 5
   maxModule: 2

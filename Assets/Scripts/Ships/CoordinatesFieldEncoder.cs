@@ -15,7 +15,18 @@ public class CoordinatesFieldEncoder : MonoBehaviour
         {
             coordinates += "-";
         }
+        else
+        {
+            if (coordinates.Length < coordinateSize)
+            {
+                if (coordinates.Contains("-"))
+                {
+                    coordinates = coordinates.Remove(coordinates.IndexOf("-"));
+                }
+            }
+        }
 
         input.text = coordinates;
+       // input.MoveToEndOfLine(false,false);
     }
 }

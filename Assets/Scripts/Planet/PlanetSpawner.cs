@@ -1,10 +1,6 @@
 using Sirenix.OdinInspector;
 using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(PlanetManager))]
 public class PlanetSpawner : MonoBehaviour
@@ -83,7 +79,16 @@ public class PlanetSpawner : MonoBehaviour
         stationPosition.x += randomSideDistance;
         stationPosition.y += 20;
 
-        stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);
+        if (stationInstance == null)
+        {
+            stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);    
+        }
+        else
+        {
+            stationInstance.transform.position = stationPosition;
+            station.SetActive(true);
+        }
+        
                 
     }
 
@@ -106,16 +111,18 @@ public class PlanetSpawner : MonoBehaviour
             Vector3 _pos = new Vector3(x, y, z);
             planet.transform.position = _pos;
         }
-        Debug.Log("Radomize Position");
+//        Debug.Log("Radomize Position");
     }
 
     [Button("Reset the Galaxy !")]
-    private void ResetGalaxy()
+    public void ResetGalaxy()
     {
         for (int i = 0; i < pm.Planets.Count; i++)
         {
             Destroy(pm.Planets[i].gameObject);
         }
+        
+        station.SetActive(false);
         pm.Planets.Clear();
         Destroy(sun);
     }
