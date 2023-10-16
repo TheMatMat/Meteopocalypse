@@ -56,7 +56,7 @@ public class ShipCreatorManager : MonoBehaviour
 
     private NavigationSystem _startNavigation;
 
-
+    private bool _isInMenu;
 
     private void Start()
     {
@@ -98,6 +98,8 @@ public class ShipCreatorManager : MonoBehaviour
            // _startNavigation.IsBlocked = true;
            _startNavigation.DisableNavigation();
         }
+
+        _isInMenu = true;
 
         for (int i = 0; i < moduleParent.transform.childCount; i++)
         {
@@ -274,6 +276,20 @@ public class ShipCreatorManager : MonoBehaviour
             horizontalGroup.spacing = 200;
             _action = 0;
         }
+        else
+        {
+            if (_isInMenu)
+            {
+                Debug.Log("enter leave");
+                coordsPanel.SetActive(false);
+                _isInMenu = false;
+                GetComponent<Image>().enabled = false;
+                moduleParent.gameObject.SetActive(false);
+                transform.parent.GetComponentInChildren<NavigationSystem>().EnableNavigation();
+                Debug.Log("currentNavigation " + transform.parent.GetComponentInChildren<NavigationSystem>().gameObject.name);
+            }
+        }
+        
     }
 
     private void OnSendSpaceShip(InputAction.CallbackContext e)
