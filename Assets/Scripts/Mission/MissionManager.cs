@@ -15,6 +15,8 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private int maxMissionSimultaneously;
     [SerializeField] private float minNewMissionCooldown;
     [SerializeField] private float maxNewMissionCooldown;
+    [SerializeField] private float minMissionDuration;
+    [SerializeField] private float maxMissionDuration;
     [SerializeField] private List<MissionResult> dailyMissions = new List<MissionResult>();
     [SerializeField] private DayManager dayManager;
 
@@ -26,6 +28,16 @@ public class MissionManager : MonoBehaviour
     public List<MissionResult> DailyMissions
     {
         get => dailyMissions;
+    }
+
+    public float MinMissionDuration
+    {
+        get => minMissionDuration;
+    }
+
+    public float MaxMissionDuration
+    {
+        get => maxMissionDuration;
     }
 
     public event Action OnMissionFinished;
@@ -90,6 +102,8 @@ public class MissionManager : MonoBehaviour
         mission.OnMissionTimeUp += pickedPlanet.RemoveMission;
 
         mission.InitializeMission((MISSION_TYPE)randomType, (MISSION_SUBTYPE)randomSubtype, pickedPlanet,this);
+       // mission.MaxTime = UnityEngine.Random.Range(minMissionDuration, maxMissionDuration);
+
         _missions.Add(mission);
 
         //assign the notification
