@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 862babb0df0c8304ebcd418a83608346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csv: {fileID: 4900000, guid: 2ca8a6d5867a8cb48809b885de902497, type: 3}
+  csvFile: {fileID: 4900000, guid: 2ca8a6d5867a8cb48809b885de902497, type: 3}
   datas: []
 --- !u!4 &247734344
 Transform:

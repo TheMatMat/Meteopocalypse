@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CSVReader : MonoBehaviour
@@ -20,6 +21,14 @@ public class CSVReader : MonoBehaviour
             this.subTypeID = subTypeID;
             this.content = content;
         }
+
+        public int ID => id;
+
+        public int TypeID => typeID;
+
+        public int SubTypeID => subTypeID;
+
+        public DialogContent Content => content;
     }
 
     [Serializable]
@@ -65,13 +74,17 @@ public class CSVReader : MonoBehaviour
 
         for (int i = 1; i < csvGrid.Length; i++)
         {
-            int type = int.Parse(csvGrid[i][0]);
-            int subType = int.Parse(csvGrid[i][1]);
+            int id = int.Parse(csvGrid[i][0]);
+            int type = int.Parse(csvGrid[i][1]);
+            int subType = int.Parse(csvGrid[i][2]);
 
-            DialogContent content = new DialogContent(csvGrid[i][2],csvGrid[i][3]);
-            DataRow data = new DataRow(0,type, subType, content);
+            DialogContent content = new DialogContent(csvGrid[i][3],csvGrid[i][4]);
+            DataRow data = new DataRow(id,type, subType, content);
 
             datas.Add(data);
         }
     }
+
+    public List<DataRow> GetAllDatasRowWithTypes(MISSION_TYPE type, MISSION_SUBTYPE subType) => datas.Where(data => data.TypeID == (int)type && data.SubTypeID == (int)subType).ToList();
+    
 }
