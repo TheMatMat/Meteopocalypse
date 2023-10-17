@@ -6,8 +6,10 @@ public class MultiDisplay : MonoBehaviour
 {
     void Start()
     {
-        Display.displays[1].Activate();
-        Debug.developerConsoleEnabled = true;
+        if (Display.displays.Length >= 2)
+        {
+            Display.displays[1].Activate();    
+        }
     }
 
 }

@@ -81,7 +81,8 @@ public class PlanetSpawner : MonoBehaviour
 
         if (stationInstance == null)
         {
-            stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);    
+            stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);  
+            stationInstance.SetActive(true);
         }
         else
         {
