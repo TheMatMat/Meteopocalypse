@@ -11,6 +11,7 @@ public class ReportManager : CoroutineSystem
     [SerializeField] private SpaceShipsEventRef shipEvents;
 
     [SerializeField] private GameObject reportGO;
+    [SerializeField] private float reportTimer;
 
     private void Start()
     {
@@ -46,7 +47,7 @@ public class ReportManager : CoroutineSystem
 
         reportGO.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = reportText;
 
-        RunDelayed(5f, () =>
+        RunDelayed(reportTimer, () =>
         {
             reportGO.SetActive(false);
         });
