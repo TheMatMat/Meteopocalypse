@@ -9,7 +9,6 @@ public class SpaceShipData : ScriptableObject
     // List de type de module 
 
     [SerializeField] private float shipSpeed;
-    [SerializeField] private float maxReachDistance;
     [SerializeField] private float minTimeToAchieveTask;
     [SerializeField] private float maxTimeToAchieveTask;
 
@@ -23,11 +22,7 @@ public class SpaceShipData : ScriptableObject
     public float ShipSpeed
     {
         get => shipSpeed;
-    }
 
-    public float MaxReachDistance
-    {
-        get => maxReachDistance;
     }
 
     public int MaxModule

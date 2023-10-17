@@ -841,7 +841,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 2188733237333272744, guid: 121be943e5655a34596c518912315c15,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -2191,7 +2191,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -2877,7 +2877,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -2960,7 +2960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pm: {fileID: 998920247}
-  vaisseau: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  vaisseau: {fileID: 2039709601972075972, guid: bb5fd92904d5c524a9692d329bf13270,
     type: 3}
 --- !u!1 &1622248614
 GameObject:
@@ -3263,9 +3263,9 @@ MonoBehaviour:
   spawner: {fileID: 998920247}
   shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
-  shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
+  shipData: {fileID: 11400000, guid: 521cae4c1b2b0b44780627db9a4b816c, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 7381591032852644203, guid: d493411b525ce0b4e8de8ce4e77a64b8,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -3424,9 +3424,9 @@ MonoBehaviour:
   spawner: {fileID: 998920247}
   shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
-  shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
+  shipData: {fileID: 11400000, guid: 277e18ed5043c144eab0a9eaacfc1946, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 2039709601972075972, guid: bb5fd92904d5c524a9692d329bf13270,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
