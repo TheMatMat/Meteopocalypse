@@ -85,6 +85,7 @@ public class ShipCreatorManager : MonoBehaviour
         }
         
         coordsPanel.SetActive(true);
+        coordsField.text = "";
             
         if(_targetShip.ShipData.MaxModule > 0)
         {
@@ -280,13 +281,11 @@ public class ShipCreatorManager : MonoBehaviour
         {
             if (_isInMenu)
             {
-                Debug.Log("enter leave");
                 coordsPanel.SetActive(false);
                 _isInMenu = false;
                 GetComponent<Image>().enabled = false;
                 moduleParent.gameObject.SetActive(false);
                 transform.parent.GetComponentInChildren<NavigationSystem>().EnableNavigation();
-                Debug.Log("currentNavigation " + transform.parent.GetComponentInChildren<NavigationSystem>().gameObject.name);
             }
         }
         

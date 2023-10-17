@@ -114,6 +114,8 @@ public class SpaceShip : CoroutineSystem
 
         RunDelayed(timeToAchieveTask, () =>
         {
+            _spaceShipsEvent.ReceivePlanetData(reachPlanet);
+            _shipMovement.gameObject.SetActive(true);
             SendToStation();
         });
     }
@@ -128,6 +130,7 @@ public class SpaceShip : CoroutineSystem
     {
         Debug.Log("arrive on station");
         _hasBeenSend = false;
+        _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 1f);
         _spaceShipsEvent.ReturnSpaceShip(this);
         onReturnSpaceShip?.Invoke();
     }

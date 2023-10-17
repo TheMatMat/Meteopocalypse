@@ -391,6 +391,170 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &123626261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 123626262}
+  - component: {fileID: 123626264}
+  - component: {fileID: 123626263}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &123626262
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123626261}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 135158515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: -7.5, y: 0}
+  m_SizeDelta: {x: -15, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &123626263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123626261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &123626264
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123626261}
+  m_CullTransparentMesh: 1
+--- !u!1 &135158514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135158515}
+  - component: {fileID: 135158516}
+  m_Layer: 5
+  m_Name: SatisfactionSlider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &135158515
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135158514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 123626262}
+  - {fileID: 202150550}
+  m_Father: {fileID: 1804823046}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -715, y: 456}
+  m_SizeDelta: {x: 443.2989, y: 132.9811}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &135158516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135158514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_FillRect: {fileID: 1622248615}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 1
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &152144966
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +682,42 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &202150549
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 202150550}
+  m_Layer: 5
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &202150550
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202150549}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1622248615}
+  m_Father: {fileID: 135158515}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: -5, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &329382907
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +841,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -818,6 +1018,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405149548}
   m_CullTransparentMesh: 1
+--- !u!1 &416383276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6451673770220651865, guid: 7752eb10217111d4cbdf1cb9429340f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 759575162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &434445334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434445335}
+  - component: {fileID: 434445336}
+  m_Layer: 0
+  m_Name: ReportManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &434445335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434445334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434445336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434445334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1369687946e4d4048bf25b9f71c420b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipEvents: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
+  reportGO: {fileID: 416383276}
+  reportTimer: 0
 --- !u!1 &446273518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,7 +1522,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 2188733237333272744, guid: 121be943e5655a34596c518912315c15,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -1392,6 +1645,16 @@ PrefabInstance:
       objectReference: {fileID: 998920246}
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
+      propertyPath: maxMissionDuration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
+      propertyPath: minMissionDuration
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
+        type: 3}
       propertyPath: _missions.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1413,7 +1676,7 @@ PrefabInstance:
     - target: {fileID: 1388715865484157119, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
       propertyPath: maxMissionSimultaneously
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5791596500748484018, guid: 3eba96ff55d90d14496366f61b5d640e,
         type: 3}
@@ -1483,11 +1746,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2119166235581709920, guid: 7752eb10217111d4cbdf1cb9429340f5,
-        type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 55
-      objectReference: {fileID: 0}
     - target: {fileID: 5055960574792031538, guid: 7752eb10217111d4cbdf1cb9429340f5,
         type: 3}
       propertyPath: m_Name
@@ -1598,11 +1856,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 831066356}
-    - target: {fileID: 8577599848630427651, guid: 7752eb10217111d4cbdf1cb9429340f5,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1938,7 +2191,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -2104,6 +2357,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &923064508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923064509}
+  - component: {fileID: 923064510}
+  m_Layer: 0
+  m_Name: SatisfactionCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923064509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923064508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923064510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923064508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80bafa8dbd51764b8c8c0f5dfbedefd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 135158516}
+  satisfaction: 0
+  maxSatisfaction: 100
+  missionSucceedPercentage: 0.1
+  missionFailedPercentage: 0.1
+  missionManager: {fileID: 798226765}
 --- !u!1 &938631719
 GameObject:
   m_ObjectHideFlags: 0
@@ -2574,7 +2877,7 @@ MonoBehaviour:
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: d2a392587efc2ae4d94a8a5136069c52, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -2657,8 +2960,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pm: {fileID: 998920247}
-  vaisseau: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  vaisseau: {fileID: 2039709601972075972, guid: bb5fd92904d5c524a9692d329bf13270,
     type: 3}
+--- !u!1 &1622248614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1622248615}
+  - component: {fileID: 1622248617}
+  - component: {fileID: 1622248616}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1622248615
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622248614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202150550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1622248616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622248614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.00965035, g: 1, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1622248617
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622248614}
+  m_CullTransparentMesh: 1
 --- !u!1 &1804823042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +3050,7 @@ GameObject:
   - component: {fileID: 1804823044}
   - component: {fileID: 1804823043}
   m_Layer: 5
-  m_Name: ShipsCanvas
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2756,6 +3134,7 @@ RectTransform:
   - {fileID: 490986631}
   - {fileID: 405149549}
   - {fileID: 800797142}
+  - {fileID: 135158515}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2884,9 +3263,9 @@ MonoBehaviour:
   spawner: {fileID: 998920247}
   shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
-  shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
+  shipData: {fileID: 11400000, guid: 521cae4c1b2b0b44780627db9a4b816c, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 7381591032852644203, guid: d493411b525ce0b4e8de8ce4e77a64b8,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -3045,9 +3424,9 @@ MonoBehaviour:
   spawner: {fileID: 998920247}
   shipSpawner: {fileID: 1601811722}
   reachPlanet: {fileID: 0}
-  shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
+  shipData: {fileID: 11400000, guid: 277e18ed5043c144eab0a9eaacfc1946, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  spaceShipModel: {fileID: 2545581528112772807, guid: 8569e14e41e95424ba1f5a8e2726cbee,
+  spaceShipModel: {fileID: 2039709601972075972, guid: bb5fd92904d5c524a9692d329bf13270,
     type: 3}
   onSendSpaceShip:
     m_PersistentCalls:
@@ -3103,3 +3482,5 @@ SceneRoots:
   - {fileID: 1601811721}
   - {fileID: 446273519}
   - {fileID: 1076267756}
+  - {fileID: 434445335}
+  - {fileID: 923064509}
