@@ -76,7 +76,7 @@ public class Mission : MonoBehaviour
         _missionCount++;
 
         //set timer
-        maxTime = Random.Range(40,50); // in seconds
+        maxTime = Random.Range(missionManager.MinMissionDuration,missionManager.MaxMissionDuration + 1); // in seconds
         _remainingTime = maxTime;
         //set mission type and subtype
         _type = type;
