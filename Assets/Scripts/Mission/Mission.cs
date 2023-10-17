@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -75,7 +76,7 @@ public class Mission : MonoBehaviour
         _missionCount++;
 
         //set timer
-        maxTime = Random.Range(40,50); // in seconds
+        maxTime = Random.Range(missionManager.MinMissionDuration,missionManager.MaxMissionDuration + 1); // in seconds
         _remainingTime = maxTime;
         //set mission type and subtype
         _type = type;
@@ -84,7 +85,21 @@ public class Mission : MonoBehaviour
 
         _missionManager = missionManager;
         //set the mission text
+
+        // Récuperer tt les textes avec le type et le subtype et ensuite random dans ces texte la 
+
         _missionText = "Lorem ipsum dolores blabla ceci est une phrase random";
+        List<CSVReader.DataRow> missionRow = CSVReader.Instance.GetAllDatasRowWithTypes(_type, _subtype);
+
+        if (missionRow.Count == 0)
+        {
+            Debug.Log("Don't find text for mission type " + _type + " (" + (int)_type + ") with sub type " + _subtype + " (" + (int)_subtype + ")");
+            return;
+        }
+        
+        int randomTextIndex = Random.Range(missionRow[0].ID,missionRow[missionRow.Count - 1].ID + 1);
+        _missionText = missionRow.First(data => data.ID == randomTextIndex).Content.fr;
+        Debug.Log("set text " + _missionText);
     }
 
     public void MissionDone()
