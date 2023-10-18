@@ -21,8 +21,7 @@ public class SpaceShip : CoroutineSystem
     }
     
     [SerializeField] private SpaceShipsEventRef spaceShipsEventRef;
-
-    [SerializeField] private GameObject spaceShipModel;
+    [SerializeField] private PrintDemo printer;
     
     private SpaceShipsEvents _spaceShipsEvent;
 
@@ -114,6 +113,7 @@ public class SpaceShip : CoroutineSystem
 
         RunDelayed(timeToAchieveTask, () =>
         {
+            printer.Print(reachPlanet);
             _spaceShipsEvent.ReceivePlanetData(reachPlanet);
             _shipMovement.gameObject.SetActive(true);
             SendToStation();
