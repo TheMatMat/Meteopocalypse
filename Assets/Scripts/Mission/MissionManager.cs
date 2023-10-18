@@ -128,6 +128,11 @@ public class MissionManager : MonoBehaviour
 
     void RemoveMission(int _id)
     {
+        if (GetMissionById(_id) != null)
+        {
+            return;
+        }
+        
         if (GetMissionById(_id).IsFinished)
         {
             OnMissionSucceed?.Invoke();

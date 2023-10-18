@@ -88,11 +88,11 @@ public class PrintDemo : MonoBehaviour
 
 
         int beginY = 520;
-        for (int i = 0; i < /*printPlanet.Missions.Count*/ 2; i++)
+        for (int i = 0; i < printPlanet.Missions.Count; i++)
         {
             printer.SetTextFontStyle(TextFontStyle.Regular);
             printer.SetPrintPosition(5, beginY);
-            printer.PrintText("INFRASTRUCTURE");
+            printer.PrintText(printPlanet.Missions[i].Subtype.ToString());
             beginY += 15;
 
         }
