@@ -41,6 +41,8 @@ public class MissionManager : MonoBehaviour
     }
 
     public event Action OnMissionFinished;
+    public event Action OnMissionFailed;
+    public event Action OnMissionSucceed;
 
 
     void Start()
@@ -126,14 +128,36 @@ public class MissionManager : MonoBehaviour
 
     void RemoveMission(int _id)
     {
+        if (GetMissionById(_id).IsFinished)
+        {
+            OnMissionSucceed?.Invoke();
+        }
+        else
+        {
+            OnMissionFailed?.Invoke();
+        }
+        
         foreach(Mission mission in _missions.ToList())
         {
             if(mission.ID == _id)
                 _missions.Remove(mission);
         }
-
+        
         OnMissionFinished?.Invoke();
         
+    }
+
+    private Mission GetMissionById(int id)
+    {
+        foreach (Mission mission in _missions)
+        {
+            if (mission.ID == id)
+            {
+                return mission;
+            }
+        }
+
+        return null;
     }
 
     public void ClearMission()

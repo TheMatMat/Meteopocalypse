@@ -17,7 +17,9 @@ public class PlanetsPhysics : MonoBehaviour
     void Update()
     {
         if (startMoving)
+        {
             transform.RotateAround(new Vector3(0, 0, 0), new Vector3(0, 1, 0), spinSpeed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerStay(Collider other)
