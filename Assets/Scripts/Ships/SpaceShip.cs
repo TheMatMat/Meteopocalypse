@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SpaceShip : CoroutineSystem
 {
 
-    [SerializeField] private PlanetSpawner spawner;
+    [SerializeField] private PlanetManager spawner;
     [SerializeField] private SpaceShipSpawner shipSpawner;
     
     [SerializeField] private Planet reachPlanet;
@@ -63,6 +63,7 @@ public class SpaceShip : CoroutineSystem
 
     private SpaceShipMovement _shipMovement;
     
+    [SerializeField] private TypeManagerRef _typeManager;
     
     private void Start()
     {
@@ -89,6 +90,12 @@ public class SpaceShip : CoroutineSystem
         else
         {
             ActualizeDestination(reachPlanet.transform);
+        }
+        
+        // Generate Modules UI
+        foreach (MISSION_SUBTYPE module in modules)
+        {
+            _shipMovement.ElementUIInfo.AddIcon(_typeManager.Instance.GetSpriteBySubType(module));
         }
         
         spaceShipsEventRef.Instance.SendSpaceShip(this);
@@ -123,7 +130,7 @@ public class SpaceShip : CoroutineSystem
     private void SendToStation()
     {
         Debug.Log("send to station");
-        ActualizeDestination(spawner.Station.transform);
+        ActualizeDestination(spawner.StationInstance.transform);
     }
     
     public void ArriveOnStation()
@@ -144,7 +151,7 @@ public class SpaceShip : CoroutineSystem
     private void ActualizeDestination(Transform destination)
     {
         _shipMovement.gameObject.transform.parent = destination;
-        _shipMovement.TimeToGo = Vector3.Distance(_shipMovement.transform.position,destination.position) / 2;
+        _shipMovement.TimeToGo = (Vector3.Distance(_shipMovement.transform.position,destination.position) / 2) / shipData.ShipSpeed;
         _shipMovement.GoToPlanet();
     }
 }

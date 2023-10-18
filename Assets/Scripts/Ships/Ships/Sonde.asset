@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Sonde
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  shipSpeed: 100
-  maxReachDistance: 10000
+  shipSpeed: 1
   minTimeToAchieveTask: 2
   maxTimeToAchieveTask: 5
   maxModule: 0
+  shipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
+    type: 3}

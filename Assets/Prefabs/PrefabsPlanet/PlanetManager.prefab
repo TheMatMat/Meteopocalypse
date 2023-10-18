@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8132886034023183106}
   - component: {fileID: 4766538594149253378}
-  - component: {fileID: 4100970750351869321}
   m_Layer: 0
   m_Name: PlanetManager
   m_TagString: Untagged
@@ -46,25 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _planetDataBase: {fileID: 11400000, guid: f1d24efac0dff8244a5830b0acb8845e, type: 2}
-  _planetPrefab: {fileID: 3574437711930909128, guid: 7d703cda8a963fb47837d08567da2219,
+  _planetPrefab: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
     type: 3}
-  _planetMinNB: 1
+  _planetMinNB: 3
   _planetMaxNB: 4
   _planets: []
---- !u!114 &4100970750351869321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685128331873094850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1aac1ac90d64954b91d509ed5c326c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  safeRadius: 3.5
-  pm: {fileID: 4766538594149253378}
-  planetTemp: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+  minDistancePlanet: 3
+  maxDistancePlanet: 8
+  sun: {fileID: 5436414952903833952, guid: 8b39d03fdfd5bc84a94c62c8b1f09a40, type: 3}
+  station: {fileID: 3520472510016773646, guid: 5a7a412c7e2648a46be860188099aaae, type: 3}
+  planetOrbit: {fileID: 8343345703094756990, guid: 04ac3503e7053734e9977406278a8792,
     type: 3}
-  SunTemp: {fileID: 5436414952903833952, guid: 8b39d03fdfd5bc84a94c62c8b1f09a40, type: 3}

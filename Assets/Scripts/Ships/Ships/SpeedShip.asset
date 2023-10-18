@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: SpeedShip
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  shipSpeed: 100
+  shipSpeed: 2
   minTimeToAchieveTask: 2
   maxTimeToAchieveTask: 5
   maxModule: 1
+  shipModel: {fileID: 2188733237333272744, guid: 121be943e5655a34596c518912315c15,
+    type: 3}

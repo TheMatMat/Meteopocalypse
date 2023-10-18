@@ -82,7 +82,6 @@ public class NavigationSystem : MonoBehaviour
     private void OnRight(InputAction.CallbackContext e)
     { // 0 
         
-        Debug.Log("right ");
         if (_isBlocked)
         {
             return;

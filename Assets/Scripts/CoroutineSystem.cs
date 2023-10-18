@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CoroutineSystem : MonoBehaviour
 {
-    public virtual void Update() {}
-
 
     protected IEnumerator DelayedCoroutine(float delay, System.Action a) {
         yield return new WaitForSeconds(delay);

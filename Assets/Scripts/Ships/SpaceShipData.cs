@@ -14,6 +14,8 @@ public class SpaceShipData : ScriptableObject
 
     [SerializeField] private int maxModule;
 
+    [SerializeField] private GameObject shipModel;
+
     public Sprite Sprite
     {
         get => sprite;
@@ -39,5 +41,10 @@ public class SpaceShipData : ScriptableObject
     public float MaxTimeToAchieveTask
     {
         get => maxTimeToAchieveTask;
+    }
+
+    public GameObject ShipModel
+    {
+        get => shipModel;
     }
 }
