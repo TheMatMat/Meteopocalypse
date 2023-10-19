@@ -81,7 +81,7 @@ public class MissionManager : MonoBehaviour
         }
 
         // random type and subtype
-        int randomType = UnityEngine.Random.Range(1, (int)MISSION_TYPE.NB_VALUES);
+        int randomType = UnityEngine.Random.Range(1, (int)MISSION_TYPE.NB_VALUES - 1);
         int randomSubtype = UnityEngine.Random.Range(randomType * 3, randomType * 3 + 2);
 
         //initalize mission
