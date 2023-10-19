@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -30,9 +31,10 @@ public class ShipCreatorManager : MonoBehaviour
     [SerializeField] private InputActionProperty send;
     [SerializeField] private TMP_InputField coordsField;
     [SerializeField] private GameObject coordsPanel;
-    
-    
-    
+
+    [SerializeField] Transform modulePanelOutPos, modulePanelInPos;
+    [SerializeField] Transform coordPanelOutPos, coordPanelInPos;
+
     [SerializeField] private UnityEvent closeMenu;
 
     private NavigationSystem CurrentNavigation
@@ -83,14 +85,18 @@ public class ShipCreatorManager : MonoBehaviour
         {
             return;
         }
-        
+
+        coordsPanel.GetComponent<RectTransform>().position = coordPanelOutPos.position;
         coordsPanel.SetActive(true);
+        coordsPanel.GetComponent<RectTransform>().DOMove(coordPanelInPos.position, 0.7f);
+        
         coordsField.text = "";
-            
-        if(_targetShip.ShipData.MaxModule > 0)
+
+        if (_targetShip.ShipData.MaxModule > 0)
         {
             GetComponent<Image>().enabled = true;
-            moduleParent.gameObject.SetActive(true);
+            this.gameObject.GetComponent<RectTransform>().position = modulePanelOutPos.position;
+            this.gameObject.GetComponent<RectTransform>().DOMove(modulePanelInPos.position, 0.5f).OnComplete(() => moduleParent.gameObject.SetActive(true));
         }
         else
         {
@@ -153,7 +159,7 @@ public class ShipCreatorManager : MonoBehaviour
 
                     if (b != button)
                     {
-                        Destroy(b);
+                        b.transform.DOScale(new Vector3(0, 0, 0), 0.3f).OnComplete(() => Destroy(b));
                     }
                     else
                     {
@@ -169,9 +175,16 @@ public class ShipCreatorManager : MonoBehaviour
                 
                 CurrentNavigation.NavigationButtons.Clear();
 
+                float delay = 0f;
                 for (int i = 0; i < category.subTypes.Count; i++)
                 {
                     GameObject newButton = Instantiate(button);
+
+                    //Hide it and scale down then up
+                    newButton.SetActive(false);
+                    newButton.transform.localScale = new Vector3(0, 0, 0);
+                    newButton.SetActive(true);
+
                     newButton.transform.parent = button.transform.parent;
                     newButton.GetComponent<Button>().onClick.AddListener(delegate { OnTypeChoose(newButton); });
                     CurrentNavigation.NavigationButtons.Add(newButton.GetComponent<Button>());
@@ -182,6 +195,9 @@ public class ShipCreatorManager : MonoBehaviour
                     
                     
                     newButton.GetComponent<Image>().sprite = _typeManager.GetSpriteBySubType(category.subTypes[i]);
+
+                    newButton.transform.DOScale(new Vector3(1, 1, 1), 0.3f + delay).SetDelay(0.3f);
+                    delay += 0.1f;
                 }
                 
                 _action++;
@@ -195,7 +211,7 @@ public class ShipCreatorManager : MonoBehaviour
 
                     if (b != button)
                     {
-                        Destroy(b);
+                        b.transform.DOScale(new Vector3(0, 0, 0), 0.3f).OnComplete(() => Destroy(b));
                     }
 
                     Button btn = b.GetComponent<Button>();
@@ -324,6 +340,5 @@ public class ShipCreatorManager : MonoBehaviour
 
         GetComponent<Image>().enabled = false;
         moduleParent.gameObject.SetActive(false);
-
     }
 }
