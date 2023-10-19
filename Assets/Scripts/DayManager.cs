@@ -12,6 +12,11 @@ public class DayManager : MonoBehaviour
     [SerializeField] private MissionManager missionManager;
     [SerializeField] private PlanetSpawner spawner;
 
+    public int DayCount
+    {
+        get => dayCount;
+    }
+    
     public DayState State
     {
         get => state;

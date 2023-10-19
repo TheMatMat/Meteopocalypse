@@ -16,6 +16,12 @@ public class NotificationManager : MonoBehaviour
     [Button("SpawnNotification")]
     public Notification NewNotificaiton(Mission mission)
     {
+
+        if (GameManager.Instance.IsGameEnd)
+        {
+            return null;
+        }
+        
         GameObject notificationGO = Instantiate(_notificationPrefab, this.transform);
         Notification notification = notificationGO.GetComponent<Notification>();
         notification.ID = mission.ID;

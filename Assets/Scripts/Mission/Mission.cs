@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public enum MISSION_TYPE
 {
+    NONE,
     MT_WEATHER,
     MT_MILITARY,
     MT_LOGISTIC,
@@ -15,6 +16,7 @@ public enum MISSION_TYPE
 
 public enum MISSION_SUBTYPE
 {
+    NONE,
     MS_CLIMAT,
     MS_SANDSTORM,
     MS_POLUTION,
@@ -71,6 +73,11 @@ public class Mission : MonoBehaviour
 
     public void InitializeMission(MISSION_TYPE type, MISSION_SUBTYPE subtype, Planet planet,MissionManager missionManager)
     {
+        if (GameManager.Instance.IsGameEnd)
+        {
+            return;
+        }        
+        
         //set mission id
         _id = _missionCount;
         _missionCount++;
@@ -122,6 +129,11 @@ public class Mission : MonoBehaviour
 
     private void CreateMissionResult(bool isSucceed)
     {
+        if (GameManager.Instance.IsGameEnd)
+        {
+            return;
+        }
+        
         MissionResult missionResult = new MissionResult(this,isSucceed);
         _missionManager.DailyMissions.Add(missionResult);
     }

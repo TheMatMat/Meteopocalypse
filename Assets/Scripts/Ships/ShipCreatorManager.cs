@@ -72,8 +72,33 @@ public class ShipCreatorManager : MonoBehaviour
         back.action.started -= OnBack;
         back.action.started -= OnSendSpaceShip;
     }
-
     
+
+    private void GenerateTypeText(Transform transform)
+    {
+
+        Debug.Log("transform " + transform.name);
+        
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).TryGetComponent(out Button button))
+            {
+                Debug.Log("naame " +button.transform.GetChild(0).name);
+                MISSION_TYPE missionType = _typeManager.GetTypeBySprite(button.GetComponent<Image>().sprite);
+                MISSION_SUBTYPE missionSubType = _typeManager.GetSubTypeBySprite(button.GetComponent<Image>().sprite);
+                
+                if (missionType != MISSION_TYPE.NONE)
+                {
+                    button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = missionType.ToString();
+                }
+                else if (missionSubType != MISSION_SUBTYPE.NONE)
+                {
+                    button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = missionSubType.ToString();
+                }
+            }
+        }
+    }
+
 
     public void EnableMenu(GameObject clickedShip)
     {
@@ -117,7 +142,7 @@ public class ShipCreatorManager : MonoBehaviour
             {
                 if (moduleInstance.transform.GetChild(j).TryGetComponent(out Image image))
                 {
-                    image.sprite = _typeManager.GetSpriteByType((MISSION_TYPE)j);
+                    image.sprite = _typeManager.GetSpriteByType((MISSION_TYPE)(j + 1));
                 }
 
                 if (moduleInstance.transform.GetChild(j).TryGetComponent(out Button button))
@@ -138,16 +163,22 @@ public class ShipCreatorManager : MonoBehaviour
                     }
                 }
             }
+            
+            
+            GenerateTypeText(moduleInstance.transform);
         }
+        
         
     }
     private void OnTypeChoose(GameObject button)
     {
         HorizontalLayoutGroup layoutGroup = button.transform.parent.GetComponent<HorizontalLayoutGroup>();
-        
+
+        GenerateTypeText(button.transform.parent);
         switch (_action)
         {
-            case 0: // Called when choose type 
+            case 0: // Called when choose type
+                
                 for (int i = 0; i < button.transform.parent.childCount; i++)
                 {
                     GameObject b = button.transform.parent.GetChild(i).gameObject;
@@ -185,6 +216,8 @@ public class ShipCreatorManager : MonoBehaviour
                     newButton.GetComponent<Image>().sprite = _typeManager.GetSpriteBySubType(category.subTypes[i]);
                 }
                 
+                GenerateTypeText(button.transform.parent);
+                
                 _action++;
                 break;
             
@@ -211,6 +244,15 @@ public class ShipCreatorManager : MonoBehaviour
 
                 MISSION_SUBTYPE missionModule = _typeManager.GetSubTypeBySprite(button.GetComponent<Image>().sprite);
                 _targetShip.AddModule(missionModule);
+                
+                Debug.Log("name " + button.transform.parent.name);
+
+                for (int i = 0; i < button.transform.parent.childCount; i++)
+                {
+                    Debug.Log("child " + button.transform.parent.GetChild(i).name);
+                    Debug.Log("text " + button.transform.parent.GetChild(i).GetChild(0).name);
+                    button.transform.parent.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>().text = "";
+                }
 
                 int index = -1;
 

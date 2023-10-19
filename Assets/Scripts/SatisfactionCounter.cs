@@ -9,6 +9,7 @@ public class SatisfactionCounter : MonoBehaviour
 
     [SerializeField] private Slider slider;
     [SerializeField] private float satisfaction;
+    [SerializeField] private GameManager gameManager;
 
     public float Satisfaction
     {
@@ -50,6 +51,15 @@ public class SatisfactionCounter : MonoBehaviour
     {
         float t = (satisfaction / maxSatisfaction);
         slider.value = t;
+    }
+
+    public void OnValueChanged(Slider newValue)
+    {
+        Debug.Log("new value set");
+        if (newValue.value <= 0)
+        {
+            gameManager.Death();
+        }
     }
 
     private void OnMissionSucceed() => Satisfaction += maxSatisfaction * missionSucceedPercentage;
