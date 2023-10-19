@@ -106,7 +106,6 @@ public class Mission : MonoBehaviour
         
         int randomTextIndex = Random.Range(missionRow[0].ID,missionRow[missionRow.Count - 1].ID + 1);
         _missionText = missionRow.First(data => data.ID == randomTextIndex).Content.fr;
-        Debug.Log("set text " + _missionText);
     }
 
     public void MissionDone()

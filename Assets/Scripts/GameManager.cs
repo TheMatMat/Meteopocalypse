@@ -36,7 +36,7 @@ public class GameManager : CoroutineSystem
     {
         _isGameEnd = true;
         deathMenu.SetActive(true);
-        deathMenu.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = dayManager.DayCount.ToString();
+        deathMenu.transform.GetChild(2).GetComponent<NumberSpriteCreator>().Number = dayManager.DayCount + 1;
         RunDelayedInput(() =>
         {
             SceneManager.LoadScene("MainMenu");

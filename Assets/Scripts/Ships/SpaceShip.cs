@@ -89,7 +89,7 @@ public class SpaceShip : CoroutineSystem
         }
         else
         {
-            ActualizeDestination(reachPlanet.transform);
+            ActualizeDestination(reachPlanet.gameObject);
         }
         
         // Generate Modules UI
@@ -130,7 +130,7 @@ public class SpaceShip : CoroutineSystem
     private void SendToStation()
     {
         Debug.Log("send to station");
-        ActualizeDestination(spawner.StationInstance.transform);
+        ActualizeDestination(spawner.StationInstance);
     }
     
     public void ArriveOnStation()
@@ -148,9 +148,9 @@ public class SpaceShip : CoroutineSystem
         Debug.Log("add module " + module + " to space ship");
     }
 
-    private void ActualizeDestination(Transform destination)
+    private void ActualizeDestination(GameObject destination)
     {
-        _shipMovement.TimeToGo = (Vector3.Distance(_shipMovement.transform.position,destination.position) / 2) / shipData.ShipSpeed;
-       // _shipMovement.GoToPlanet(destination.position);
+        _shipMovement.TimeToGo = (Vector3.Distance(_shipMovement.transform.position,destination.transform.position) / 2) / shipData.ShipSpeed;
+        _shipMovement.GoToPlanet(destination);
     }
 }

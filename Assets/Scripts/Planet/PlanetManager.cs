@@ -97,6 +97,7 @@ public class PlanetManager : MonoBehaviour
             _planets.Add(planet);
             
             GameObject orbit = Instantiate(planetOrbit,transform);
+            planet.Orbit = orbit;
             orbit.name = "Orbit of " + planet.name;
 
             PlanetsPhysics orbitPhysics = orbit.GetComponent<PlanetsPhysics>();
@@ -115,7 +116,7 @@ public class PlanetManager : MonoBehaviour
 
         if (_stationInstance == null)
         {
-            _stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);  
+            _stationInstance = Instantiate(station, stationPosition, Quaternion.Euler(-90,0,0), transform);  
             _stationInstance.SetActive(true);
         }
         else
@@ -126,5 +127,17 @@ public class PlanetManager : MonoBehaviour
         
         
       
+    }
+
+    public void ResetGalaxy()
+    {
+        for (int i = 0; i < _planets.Count; i++)
+        {
+            Destroy(_planets[i].Orbit.gameObject);
+            Destroy(_planets[i].gameObject);
+            _planets.Remove(_planets[i]);
+        }
+        
+        Destroy(sunInstance);
     }
 }

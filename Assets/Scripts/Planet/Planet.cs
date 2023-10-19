@@ -32,6 +32,13 @@ public class Planet : CoroutineSystem
 
     public PlanetCoordinates planetCoordinates;
 
+    private GameObject _orbit;
+
+    public GameObject Orbit
+    {
+        get => _orbit;
+        set => _orbit = value;
+    }
 
     private void Awake()
     {

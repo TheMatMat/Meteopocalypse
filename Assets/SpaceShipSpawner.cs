@@ -23,7 +23,7 @@ public class SpaceShipSpawner : MonoBehaviour
         movement.SpaceShip = spaceShip;
         
         movement.TimeToGo = (Vector3.Distance(movement.transform.position,spaceShip.ReachPlanet.transform.position) / 2) / spaceShip.ShipData.ShipSpeed;
-        //movement.GoToPlanet(planet.transform.position);
+        movement.GoToPlanet(planet);
 
         return movement;
     }

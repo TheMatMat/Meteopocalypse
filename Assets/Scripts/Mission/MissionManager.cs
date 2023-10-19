@@ -12,6 +12,7 @@ public class MissionManager : MonoBehaviour
 
     public GameObject _missionPrefab;
     [SerializeField] List<Mission> _missions = new List<Mission>();
+    [SerializeField] List<Mission> allDayMissions = new List<Mission>();
     [SerializeField] private int maxMissionSimultaneously;
     [SerializeField] private float minNewMissionCooldown;
     [SerializeField] private float maxNewMissionCooldown;
@@ -23,6 +24,11 @@ public class MissionManager : MonoBehaviour
     public List<Mission> Missions
     {
         get => _missions;
+    }
+    
+    public List<Mission> AllDayMissions
+    {
+        get => allDayMissions;
     }
 
     public List<MissionResult> DailyMissions
@@ -53,23 +59,29 @@ public class MissionManager : MonoBehaviour
     [Button("Create a Mission")]
     void CreateNewMission()
     {
+        Debug.Log("ask for mission creation ");
+        
         if (dayManager.State != DayState.IN_DAY)
         {
+            Debug.Log("failed 01");
             return;   
         }
         
         if(_missions.Count > maxMissionSimultaneously)
         {
+            Debug.Log("failed 02");
+            StartCoroutine(WaitNextMission());
             return;
         }
 
-        if (_missions.Count > dayManager.MissionPerDay)
+        if (allDayMissions.Count >= dayManager.MissionPerDay)
         {
+            Debug.Log("failed 03");
             return;
         }
-        
+
         // random type and subtype
-        int randomType = UnityEngine.Random.Range(1, (int)MISSION_TYPE.NB_VALUES - 1);
+        int randomType = UnityEngine.Random.Range(1, (int)MISSION_TYPE.NB_VALUES);
         int randomSubtype = UnityEngine.Random.Range(randomType * 3, randomType * 3 + 2);
 
         //initalize mission
@@ -107,6 +119,7 @@ public class MissionManager : MonoBehaviour
        // mission.MaxTime = UnityEngine.Random.Range(minMissionDuration, maxMissionDuration);
 
         _missions.Add(mission);
+        allDayMissions.Add(mission);
 
         //assign the notification
         mission.Notification = _notificationManager.NewNotificaiton(mission);
@@ -117,7 +130,7 @@ public class MissionManager : MonoBehaviour
     }
 
 
-    private IEnumerator WaitNextMission()
+    public IEnumerator WaitNextMission()
     {
         float randomTime = UnityEngine.Random.Range(minNewMissionCooldown, maxNewMissionCooldown);
 
@@ -128,7 +141,7 @@ public class MissionManager : MonoBehaviour
 
     void RemoveMission(int _id)
     {
-        if (GetMissionById(_id) != null)
+        if (GetMissionById(_id) == null)
         {
             return;
         }

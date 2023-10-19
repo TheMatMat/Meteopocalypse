@@ -44,4 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 315f45c810ee9da469f3ac6262a2db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _planetManager: {fileID: 0}
+  _notificationManager: {fileID: 0}
+  _missionPrefab: {fileID: 3586460624658792136, guid: 594cab898cbadf9459e00ca72640aab5,
+    type: 3}
   _missions: []
+  allDayMissions: []
+  maxMissionSimultaneously: 2
+  minNewMissionCooldown: 10
+  maxNewMissionCooldown: 20
+  minMissionDuration: 35
+  maxMissionDuration: 40
+  dailyMissions: []
+  dayManager: {fileID: 0}
