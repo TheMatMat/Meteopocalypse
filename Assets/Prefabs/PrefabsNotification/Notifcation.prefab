@@ -597,6 +597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _mission: {fileID: 0}
+  bgImage: {fileID: 4930140584492178148}
   headerTMP: {fileID: 2194333573706930677}
   messageTMP: {fileID: 4398565137553410916}
   slider: {fileID: 9192456019884431959}

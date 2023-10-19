@@ -105,6 +105,10 @@ public class Mission : MonoBehaviour
     public void MissionDone()
     {
         CreateMissionResult(true);
+
+        if (_notification)
+            _notification.ColorPulse(Color.green);
+
         OnMissionDone(_id);
     }
 
@@ -116,6 +120,10 @@ public class Mission : MonoBehaviour
         {
             CreateMissionResult(false);
             OnMissionTimeUp(_id);
+
+            if (_notification)
+                _notification.ColorPulse(Color.red);
+
             Destroy(this.gameObject);
         }
     }

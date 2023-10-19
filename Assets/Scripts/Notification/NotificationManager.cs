@@ -43,6 +43,7 @@ public class NotificationManager : MonoBehaviour
         return notification;
     }
 
+
     public void RemoveNotification(int _id)
     {
         int indexInList = 0;
@@ -51,7 +52,6 @@ public class NotificationManager : MonoBehaviour
             if(notification.ID == _id)
             {
                 _notifications.Remove(notification);
-                notification.Dissapear();
                 MoveDownNotifications(indexInList);
             }
             indexInList++;

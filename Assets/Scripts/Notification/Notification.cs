@@ -13,6 +13,7 @@ public class Notification : MonoBehaviour
     [SerializeField] Mission _mission;
     public Mission Mission { get { return _mission; } set { _mission = value;  } }
 
+    [SerializeField] Image bgImage;
     [SerializeField] TextMeshProUGUI headerTMP, messageTMP;
     [SerializeField] Slider slider;
 
@@ -43,6 +44,17 @@ public class Notification : MonoBehaviour
     public void Dissapear()
     {
         this.transform.DOScale(new Vector3(0, 0, 0), 0.5f).OnComplete(() => Destroy(this.gameObject));
+    }
+
+    public void ColorPulse(Color color)
+    {
+        Color baseColor = bgImage.color;
+        Sequence colorPulseSeq = DOTween.Sequence();
+
+        colorPulseSeq.Append(bgImage.DOColor(color, 0.2f));
+        colorPulseSeq.Append(bgImage.DOColor(baseColor, 0.2f)); 
+        colorPulseSeq.Append(bgImage.DOColor(color, 0.2f))
+            .OnComplete(() => Dissapear());
     }
 
     public void MoveUp(float deltaY, float time)
