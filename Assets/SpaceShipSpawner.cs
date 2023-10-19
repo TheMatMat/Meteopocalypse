@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class SpaceShipSpawner : MonoBehaviour
 {
-    [SerializeField] private PlanetSpawner pm;
-    [SerializeField] private GameObject vaisseau;
+    [SerializeField] private PlanetManager pm;
 
     [Button("Spawn")]
     public SpaceShipMovement SpawnSpaceShip(SpaceShip spaceShip)
@@ -14,16 +13,17 @@ public class SpaceShipSpawner : MonoBehaviour
         
         GameObject planet = spaceShip.ReachPlanet.gameObject;
 
-        GameObject spaceShipInstance = Instantiate(vaisseau, transform);
-        spaceShipInstance.transform.parent = planet.transform;
-        spaceShipInstance.transform.position = pm.Station.transform.position;
+        GameObject spaceShipInstance = Instantiate(spaceShip.ShipData.ShipModel);
+        spaceShipInstance.transform.position = pm.StationInstance.transform.position;
+        spaceShipInstance.transform.localScale = spaceShip.ShipData.ShipModel.transform.localScale;
+        spaceShipInstance.transform.rotation = Quaternion.Euler(0,0,0);
 
         SpaceShipMovement movement = spaceShipInstance.GetComponent<SpaceShipMovement>();
 
         movement.SpaceShip = spaceShip;
         
-        movement.TimeToGo = Vector3.Distance(movement.transform.position,planet.transform.position) / 2 ;
-        movement.GoToPlanet();
+        movement.TimeToGo = (Vector3.Distance(movement.transform.position,spaceShip.ReachPlanet.transform.position) / 2) / spaceShip.ShipData.ShipSpeed;
+        //movement.GoToPlanet(planet.transform.position);
 
         return movement;
     }

@@ -10,6 +10,17 @@ public class SpaceShipMovement : CoroutineSystem
     [SerializeField] private SpaceShip spaceShip;
     [SerializeField] private float timeToGo;
 
+   
+    [SerializeField] private UISystemElementInfo elementUIInfo;
+
+    public UISystemElementInfo ElementUIInfo
+    {
+        get => elementUIInfo;
+        set => elementUIInfo = value;
+    }
+
+    private float _timer;
+
     public float TimeToGo
     {
         get => timeToGo;
@@ -22,10 +33,26 @@ public class SpaceShipMovement : CoroutineSystem
         set => spaceShip = value;
     }
 
-    [Button("GOOOOOOO")]
-    public void GoToPlanet()
+    private bool _isMoving;
+
+    void Update()
     {
-        transform.DOLocalMove(new Vector3(0,0,0), timeToGo);  
+        if (_isMoving)
+        {
+        }
+
+        elementUIInfo.SetText(((int)_timer).ToString());
+        _timer -= Time.deltaTime;
+        _timer = Mathf.Clamp(_timer, 0, TimeToGo);
+        
+    }
+
+    public void GoToPlanet(GameObject planet)
+    {
+        transform.DOLocalMove(planet.transform.position, timeToGo);
+        _timer = timeToGo;
+        _isMoving = true;
+        
         RunDelayed(timeToGo,() =>
         {
             if (transform.parent.GetComponent<Planet>() != null)
@@ -36,6 +63,8 @@ public class SpaceShipMovement : CoroutineSystem
             {
                 spaceShip.ArriveOnStation();
             }
+
+            _isMoving = false;
         });
     }
 

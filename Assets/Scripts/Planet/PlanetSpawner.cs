@@ -14,18 +14,18 @@ public class PlanetSpawner : MonoBehaviour
     [Header("Components")]
     [SerializeField] private PlanetManager pm;
 
-    [SerializeField] GameObject planetPrefab;
     [SerializeField] GameObject planetTemp;
+    [SerializeField] GameObject planetOrbit;
     [SerializeField] GameObject SunTemp;
     [SerializeField] private GameObject station;
 
     private GameObject sun;
 
-    private GameObject stationInstance;
+    private GameObject _stationInstance;
 
     public GameObject Station
     {
-        get => stationInstance;
+        get => _stationInstance;
     }
 
 
@@ -34,7 +34,7 @@ public class PlanetSpawner : MonoBehaviour
         if (pm == null)
             Debug.LogError("MISSING PLANET MANAGER");
         
-        SpawnGalaxy();
+       // SpawnGalaxy();
     }
 
     [Button("SPAWN A Galaxy !")]
@@ -52,6 +52,8 @@ public class PlanetSpawner : MonoBehaviour
 
             GameObject planetPrefab = Instantiate(planetTemp, new Vector3(_x, 0, 0), Quaternion.identity, transform);
 
+           // planetPrefab.GetComponent<PlanetsPhysics>().SpinSpeed = Random.Range(-5, 5);
+            
             SphereCollider col = planetPrefab.AddComponent<SphereCollider>();
             col.radius = minDistBtwPlanet;
             col.isTrigger = true;
@@ -70,7 +72,7 @@ public class PlanetSpawner : MonoBehaviour
         }
 
         //Randomize Planet Position
-        StartCoroutine(RandomizePosition());
+       // StartCoroutine(RandomizePosition());
 
         float randomDistance = Random.Range(sun.transform.position.x,pm.Planets[pm.Planets.Count - 1].transform.position.x);
         float randomSideDistance = Random.Range(-randomDistance, randomDistance);
@@ -79,21 +81,21 @@ public class PlanetSpawner : MonoBehaviour
         stationPosition.x += randomSideDistance;
         stationPosition.y += 20;
 
-        if (stationInstance == null)
+        if (_stationInstance == null)
         {
-            stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);  
-            stationInstance.SetActive(true);
+            _stationInstance = Instantiate(station, stationPosition, Quaternion.identity, transform);  
+            _stationInstance.SetActive(true);
         }
         else
         {
-            stationInstance.transform.position = stationPosition;
+            _stationInstance.transform.position = stationPosition;
             station.SetActive(true);
         }
         
                 
     }
 
-    IEnumerator RandomizePosition()
+  /*  IEnumerator RandomizePosition()
     {
         yield return new WaitForSeconds(1f);
     
@@ -111,9 +113,16 @@ public class PlanetSpawner : MonoBehaviour
 
             Vector3 _pos = new Vector3(x, y, z);
             planet.transform.position = _pos;
+
+            Instantiate(planetOrbit,pm.transform);
         }
 //        Debug.Log("Radomize Position");
+
+
+        
     }
+    
+    */
 
     [Button("Reset the Galaxy !")]
     public void ResetGalaxy()
@@ -133,7 +142,7 @@ public class PlanetSpawner : MonoBehaviour
     {
         foreach (Planet planet in pm.Planets)
         {
-           planet.GetComponent<PlanetsPhysics>().startMoving = true;
+          // planet.GetComponent<PlanetsPhysics>().startMoving = true;
         }
     }
 }

@@ -123,6 +123,84 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &23704126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 152445743670584248, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db85a6403551c284794c63e9f078f66f, type: 2}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.32155
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 111.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -83.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Name
+      value: Planet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748501250189295549, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a, type: 3}
 --- !u!1 &75121495
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,10 +346,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -281,6 +361,74 @@ MonoBehaviour:
   onReturnSpaceShip:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &99990059
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2188733237333272744, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_Name
+      value: ShipSpeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 135.32155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 111.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -83.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6989218
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6989218
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.107277155
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.10727712
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242010039673356314, guid: 121be943e5655a34596c518912315c15,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -17.452
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 121be943e5655a34596c518912315c15, type: 3}
 --- !u!1 &132129129
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,10 +607,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -947,10 +1097,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -1207,10 +1359,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -1271,10 +1425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -1429,10 +1585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad806f76788da64388e54886ea3675e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
+  shipSpawner: {fileID: 0}
   reachPlanet: {fileID: 0}
   shipData: {fileID: 11400000, guid: fc81c45d5f1e4a540ad4fb81f81d0ff1, type: 2}
   spaceShipsEventRef: {fileID: 11400000, guid: 055a8bf7660b95f45a76ab1df1f98820, type: 2}
-  distance: 10
+  printer: {fileID: 0}
   onSendSpaceShip:
     m_PersistentCalls:
       m_Calls: []
@@ -2227,6 +2385,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2020821345
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 152445743670584248, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f3ed9212e28e76043bb49b7b9677c241, type: 2}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 159.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 96.527725
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -127.30644
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028944986022716041, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5436414952903833952, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Name
+      value: Planet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748501250189295549, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1a3c2f6fcaaf3bd4a9116a1eab430d6a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2237,3 +2473,6 @@ SceneRoots:
   - {fileID: 492967589}
   - {fileID: 1542440662}
   - {fileID: 132129130}
+  - {fileID: 23704126}
+  - {fileID: 2020821345}
+  - {fileID: 99990059}

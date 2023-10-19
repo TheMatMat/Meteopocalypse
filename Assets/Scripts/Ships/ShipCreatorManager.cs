@@ -101,6 +101,7 @@ public class ShipCreatorManager : MonoBehaviour
         }
 
         _isInMenu = true;
+        EventsDispatcher.Instance.OpenWindow();
 
         for (int i = 0; i < moduleParent.transform.childCount; i++)
         {
@@ -281,6 +282,7 @@ public class ShipCreatorManager : MonoBehaviour
         {
             if (_isInMenu)
             {
+                EventsDispatcher.Instance.ExitWindow();
                 coordsPanel.SetActive(false);
                 _isInMenu = false;
                 GetComponent<Image>().enabled = false;
@@ -300,12 +302,13 @@ public class ShipCreatorManager : MonoBehaviour
 
     public void OnTryToSend(string coordinates)
     {
+        bool hasSuccessSend = false;
         foreach (Planet planet in planetManager.Planets)
         {
             if (planet.planetCoordinates.ToString() == coordinates)
             {
                 TargetShip.Send(planet);
-                
+                hasSuccessSend = true;
                 break;
             }
         }
@@ -314,6 +317,12 @@ public class ShipCreatorManager : MonoBehaviour
         {
             _startNavigation.EnableNavigation();
         }
+
+        if (!hasSuccessSend)
+        {
+            EventsDispatcher.Instance.FailedShipSend();
+        }
+        
         Debug.Log("renable navigation");
     }
 

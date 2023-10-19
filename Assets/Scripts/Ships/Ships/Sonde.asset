@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 861119b11e6e1fd4d9109ba34e0dc86a, type: 3}
+  m_Name: Sonde
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 0}
+  shipSpeed: 1
+  minTimeToAchieveTask: 2
+  maxTimeToAchieveTask: 5
+  maxModule: 0
+  shipModel: {fileID: 3458576983409758957, guid: 2728c0801f8a8c44ea94bd0f8473dcd6,
+    type: 3}

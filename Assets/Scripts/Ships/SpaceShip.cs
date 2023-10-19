@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class SpaceShip : CoroutineSystem
 {
 
-    [SerializeField] private PlanetSpawner spawner;
+    [SerializeField] private PlanetManager spawner;
     [SerializeField] private SpaceShipSpawner shipSpawner;
     
     [SerializeField] private Planet reachPlanet;
@@ -21,8 +21,7 @@ public class SpaceShip : CoroutineSystem
     }
     
     [SerializeField] private SpaceShipsEventRef spaceShipsEventRef;
-
-    [SerializeField] private GameObject spaceShipModel;
+    [SerializeField] private PrintDemo printer;
     
     private SpaceShipsEvents _spaceShipsEvent;
 
@@ -64,6 +63,7 @@ public class SpaceShip : CoroutineSystem
 
     private SpaceShipMovement _shipMovement;
     
+    [SerializeField] private TypeManagerRef _typeManager;
     
     private void Start()
     {
@@ -82,7 +82,7 @@ public class SpaceShip : CoroutineSystem
         Debug.Log("send");
         _hasBeenSend = true; 
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 0.3f);
-
+        EventsDispatcher.Instance.ShipSend();
         if (_shipMovement == null)
         {
             _shipMovement = shipSpawner.SpawnSpaceShip(this);
@@ -90,6 +90,12 @@ public class SpaceShip : CoroutineSystem
         else
         {
             ActualizeDestination(reachPlanet.transform);
+        }
+        
+        // Generate Modules UI
+        foreach (MISSION_SUBTYPE module in modules)
+        {
+            _shipMovement.ElementUIInfo.AddIcon(_typeManager.Instance.GetSpriteBySubType(module));
         }
         
         spaceShipsEventRef.Instance.SendSpaceShip(this);
@@ -114,6 +120,7 @@ public class SpaceShip : CoroutineSystem
 
         RunDelayed(timeToAchieveTask, () =>
         {
+            printer.Print(reachPlanet);
             _spaceShipsEvent.ReceivePlanetData(reachPlanet);
             _shipMovement.gameObject.SetActive(true);
             SendToStation();
@@ -123,7 +130,7 @@ public class SpaceShip : CoroutineSystem
     private void SendToStation()
     {
         Debug.Log("send to station");
-        ActualizeDestination(spawner.Station.transform);
+        ActualizeDestination(spawner.StationInstance.transform);
     }
     
     public void ArriveOnStation()
@@ -143,8 +150,7 @@ public class SpaceShip : CoroutineSystem
 
     private void ActualizeDestination(Transform destination)
     {
-        _shipMovement.gameObject.transform.parent = destination;
-        _shipMovement.TimeToGo = Vector3.Distance(_shipMovement.transform.position,destination.position) / 2;
-        _shipMovement.GoToPlanet();
+        _shipMovement.TimeToGo = (Vector3.Distance(_shipMovement.transform.position,destination.position) / 2) / shipData.ShipSpeed;
+       // _shipMovement.GoToPlanet(destination.position);
     }
 }

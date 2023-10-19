@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using Random = UnityEngine.Random;
 
 public class Planet : CoroutineSystem
@@ -23,9 +25,10 @@ public class Planet : CoroutineSystem
     {
         get => _missions;
     }
-    
-    
 
+    [SerializeField] private float rotateSpeed;
+
+    [SerializeField] private UISystemElementInfo planetElementUIInfo;
 
     public PlanetCoordinates planetCoordinates;
 
@@ -41,8 +44,17 @@ public class Planet : CoroutineSystem
     {
         GetComponent<MeshFilter>().mesh = _data._planetMesh;
         GetComponent<MeshRenderer>().material = _data._planetMat;
+
+        if (planetElementUIInfo != null)
+        {
+            planetElementUIInfo.SetText(_data._name);
+        }
     }
 
+    private void Update()
+    {
+        transform.Rotate(0,rotateSpeed * Time.deltaTime,0);
+    }
 
     public void AssignMission(Mission mission)
     {

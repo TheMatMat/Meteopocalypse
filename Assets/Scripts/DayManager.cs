@@ -22,7 +22,11 @@ public class DayManager : MonoBehaviour
         get => missionPerDay;
     }
 
-    private void Start() => missionManager.OnMissionFinished += OnMissionFinished;
+    private void Start()
+    {
+        missionManager.OnMissionFinished += OnMissionFinished;
+        EventsDispatcher.Instance.DayGenerate();
+    } 
     private void OnDestroy() => missionManager.OnMissionFinished -= OnMissionFinished;
     
 
