@@ -82,7 +82,7 @@ public class SpaceShip : CoroutineSystem
         Debug.Log("send");
         _hasBeenSend = true; 
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 0.3f);
-
+        EventsDispatcher.Instance.ShipSend();
         if (_shipMovement == null)
         {
             _shipMovement = shipSpawner.SpawnSpaceShip(this);
@@ -150,8 +150,7 @@ public class SpaceShip : CoroutineSystem
 
     private void ActualizeDestination(Transform destination)
     {
-        _shipMovement.gameObject.transform.parent = destination;
         _shipMovement.TimeToGo = (Vector3.Distance(_shipMovement.transform.position,destination.position) / 2) / shipData.ShipSpeed;
-        _shipMovement.GoToPlanet();
+       // _shipMovement.GoToPlanet(destination.position);
     }
 }

@@ -14,7 +14,6 @@ public class SpaceShipSpawner : MonoBehaviour
         GameObject planet = spaceShip.ReachPlanet.gameObject;
 
         GameObject spaceShipInstance = Instantiate(spaceShip.ShipData.ShipModel);
-        spaceShipInstance.transform.parent = planet.transform;
         spaceShipInstance.transform.position = pm.StationInstance.transform.position;
         spaceShipInstance.transform.localScale = spaceShip.ShipData.ShipModel.transform.localScale;
         spaceShipInstance.transform.rotation = Quaternion.Euler(0,0,0);
@@ -24,7 +23,7 @@ public class SpaceShipSpawner : MonoBehaviour
         movement.SpaceShip = spaceShip;
         
         movement.TimeToGo = (Vector3.Distance(movement.transform.position,spaceShip.ReachPlanet.transform.position) / 2) / spaceShip.ShipData.ShipSpeed;
-        movement.GoToPlanet();
+        //movement.GoToPlanet(planet.transform.position);
 
         return movement;
     }

@@ -47,9 +47,9 @@ public class SpaceShipMovement : CoroutineSystem
         
     }
 
-    public void GoToPlanet()
+    public void GoToPlanet(GameObject planet)
     {
-        transform.DOLocalMove(new Vector3(0,0,0), timeToGo);
+        transform.DOLocalMove(planet.transform.position, timeToGo);
         _timer = timeToGo;
         _isMoving = true;
         

@@ -38,7 +38,8 @@ public class PlanetManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject planetOrbit;
-    
+
+    public GameObject sunInstance;
 
     // Start is called before the first frame update
     void Awake()
@@ -63,8 +64,8 @@ public class PlanetManager : MonoBehaviour
     {
         int planetCount = Random.Range(_planetMinNB, _planetMaxNB);
 
-        GameObject sunInstance = Instantiate(sun, new Vector3(0,0,0), Quaternion.identity, transform);
-
+        sunInstance = Instantiate(sun, new Vector3(0,0,0), Quaternion.identity, transform);
+        sunInstance.GetComponent<Planet>().planetCoordinates = new PlanetCoordinates(0000, 0000);
         int lastDistance = 5;
         
         //Create Planets

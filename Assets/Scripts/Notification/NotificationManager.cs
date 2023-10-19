@@ -38,6 +38,8 @@ public class NotificationManager : MonoBehaviour
         notification.gameObject.transform.localScale = new Vector3(0, 0, 0);
         notification.gameObject.SetActive(true);
         notification.Appear();
+        
+        EventsDispatcher.Instance.ReceiveNotification();
 
         _notifications.Add(notification);
         return notification;
