@@ -395,6 +395,10 @@ MonoBehaviour:
       type: 3}
   coordsField: {fileID: 4754002377712634918}
   coordsPanel: {fileID: 5751762122701787855}
+  modulePanelOutPos: {fileID: 2665340771917346145}
+  modulePanelInPos: {fileID: 6957018656931986924}
+  coordPanelOutPos: {fileID: 7103423309111002063}
+  coordPanelInPos: {fileID: 4295489070569204282}
   closeMenu:
     m_PersistentCalls:
       m_Calls:
@@ -842,7 +846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.213806, y: -92.70505}
+  m_AnchoredPosition: {x: -4.213806, y: -8}
   m_SizeDelta: {x: -96.9188, y: -185.4101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7379335980607498628

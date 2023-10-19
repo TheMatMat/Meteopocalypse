@@ -899,7 +899,7 @@ MonoBehaviour:
       m_Name: Element 0
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 31965e1f-dec4-4585-9f78-a5e7abf1700f
+      m_Id: 85033e2b-428f-46c1-acf4-121c1d9b1f89
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -911,36 +911,12 @@ MonoBehaviour:
       m_Name: Element 1
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: afa2f6eb-4138-4732-a599-ba35a7e3fe46
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -2199152295716744255, guid: bcd076b4cb569324dbb8272c86e46558,
-      type: 3}
-  - m_UseReference: 1
-    m_Action:
-      m_Name: Element 2
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 8cb88616-385a-4983-a49e-963f7d59ab98
+      m_Id: 36180efa-1c1e-4c58-8096-865a50d94f46
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -746597609280235496, guid: bcd076b4cb569324dbb8272c86e46558,
-      type: 3}
-  - m_UseReference: 1
-    m_Action:
-      m_Name: Element 3
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 5fb11757-0f04-4265-92d4-a1c3b94a7729
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 4190258930092649220, guid: bcd076b4cb569324dbb8272c86e46558,
       type: 3}
   navigationButtons:
   - {fileID: 3386561210305878987}

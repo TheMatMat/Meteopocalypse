@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 
 public class NavigationSystem : MonoBehaviour
 {
     
-    [SerializeField] private InputActionProperty[] navigations = new InputActionProperty[4];
+    [SerializeField] private InputActionProperty[] navigations = new InputActionProperty[2];
     [SerializeField] private List<Button> navigationButtons;
 
     public List<Button> NavigationButtons
@@ -19,7 +20,6 @@ public class NavigationSystem : MonoBehaviour
     }
     
     
-    private int _lastDirection;
     
     private int _currentSelectedButton;
     private int CurrentSelectedButton
@@ -52,7 +52,6 @@ public class NavigationSystem : MonoBehaviour
     private void Start()
     {
         EnableNavigation();
-        _lastDirection = 3;
         
         navigationButtons[CurrentSelectedButton].Select();
     }
@@ -65,18 +64,14 @@ public class NavigationSystem : MonoBehaviour
     public void EnableNavigation()
     {
         navigations[0].action.started += OnRight;
-        navigations[1].action.started += OnDown;
-        navigations[2].action.started += OnLeft;
-        navigations[3].action.started += OnTop;
+        navigations[1].action.started += OnLeft;
     }
 
     public void DisableNavigation()
     {
         
         navigations[0].action.started -= OnRight;
-        navigations[1].action.started -= OnDown;
-        navigations[2].action.started -= OnLeft;
-        navigations[3].action.started -= OnTop;    
+        navigations[1].action.started -= OnLeft; 
     }
     
     private void OnRight(InputAction.CallbackContext e)
@@ -87,40 +82,11 @@ public class NavigationSystem : MonoBehaviour
             return;
         }
         
-        switch (_lastDirection)
-        {
-            case 3:
-                CurrentSelectedButton = CurrentSelectedButton + 1;
-                break;
-            
-            case 1:
-                CurrentSelectedButton = CurrentSelectedButton - 1;
-                break;
-        }
-
-        _lastDirection = 0;
+        CurrentSelectedButton = CurrentSelectedButton + 1;
+        EventsDispatcher.Instance.ChangeModule();
     }
 
-    private void OnDown(InputAction.CallbackContext e)
-    {  
-        if (_isBlocked)
-        {
-            return;
-        }
-        
-        switch (_lastDirection)
-        {
-            case 0:
-                CurrentSelectedButton = CurrentSelectedButton + 1;
-                break;
-            
-            case 2:
-                CurrentSelectedButton = CurrentSelectedButton - 1;
-                break;
-        }
-        
-        _lastDirection = 1;
-    }
+    
 
     private void OnLeft(InputAction.CallbackContext e)
     {
@@ -129,38 +95,9 @@ public class NavigationSystem : MonoBehaviour
             return;
         }
         
-        switch (_lastDirection)
-        {
-            case 1:
-                CurrentSelectedButton = CurrentSelectedButton + 1; 
-                break;
-            
-            case 3:
-                CurrentSelectedButton = CurrentSelectedButton - 1;
-                break;
-        }
-        
-        _lastDirection = 2;
+        CurrentSelectedButton = CurrentSelectedButton - 1;
+        EventsDispatcher.Instance.Return();
     }
 
-    private void OnTop(InputAction.CallbackContext e)
-    {
-        if (_isBlocked)
-        {
-            return;
-        }
-        
-        switch (_lastDirection)
-        {
-            case 2:
-                CurrentSelectedButton = CurrentSelectedButton + 1;
-                break;
-            
-            case 0:
-                CurrentSelectedButton = CurrentSelectedButton - 1;
-                break;
-        }
-        
-        _lastDirection = 3;
-    }
+   
 }

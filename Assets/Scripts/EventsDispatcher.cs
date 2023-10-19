@@ -39,13 +39,11 @@ public class EventsDispatcher : MonoBehaviour
 
     private void Start()
     {
-        inputs[0].action.started += OnChangeModuleInput;
         inputs[1].action.started += OnSelectModuleInput;
     }
 
     private void OnDestroy()
     {
-        inputs[0].action.started -= OnChangeModuleInput;
         inputs[1].action.started -= OnSelectModuleInput;
     }
 
@@ -61,19 +59,6 @@ public class EventsDispatcher : MonoBehaviour
     public void GameOver() => OnGameOver?.Invoke();
 
 
-    public void OnChangeModuleInput(InputAction.CallbackContext e)
-    {
-        Vector2 navigation = e.ReadValue<Vector2>();
-
-        if (navigation.x > 0)
-        {
-            ChangeModule();
-        }
-        else if (navigation.x < 0)
-        {
-            Return();
-        }
-    }
 
     public void OnSelectModuleInput(InputAction.CallbackContext e)
     {

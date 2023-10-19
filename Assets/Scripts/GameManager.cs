@@ -35,6 +35,7 @@ public class GameManager : CoroutineSystem
     public void Death()
     {
         _isGameEnd = true;
+        EventsDispatcher.Instance.GameOver();
         deathMenu.SetActive(true);
         deathMenu.transform.GetChild(2).GetComponent<NumberSpriteCreator>().Number = dayManager.DayCount + 1;
         RunDelayedInput(() =>
