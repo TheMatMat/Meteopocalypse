@@ -311,7 +311,12 @@ public class ShipCreatorManager : MonoBehaviour
             for (int i = 0; i < module.transform.childCount; i++)
             {
                 CurrentNavigation.NavigationButtons.Add(module.transform.GetChild(i).GetComponent<Button>());
-                module.transform.GetChild(i).GetComponent<Image>().sprite = _typeManager.GetSpriteByType((MISSION_TYPE)i);
+                module.transform.GetChild(i).GetComponent<Image>().sprite = _typeManager.GetSpriteByType((MISSION_TYPE)i + 1);
+            }
+
+            if(CurrentNavigation.NavigationButtons.Count >= 4)
+            {
+                CurrentNavigation.NavigationButtons.RemoveRange(3, CurrentNavigation.NavigationButtons.Count - 3);
             }
 
             horizontalGroup.spacing = 200;
@@ -370,6 +375,8 @@ public class ShipCreatorManager : MonoBehaviour
 
         GetComponent<Image>().enabled = false;
         moduleParent.gameObject.SetActive(false);
+        transform.parent.GetComponentInChildren<NavigationSystem>().EnableNavigation();
+
         EventsDispatcher.Instance.ExitWindow();
     }
 }
