@@ -34,6 +34,10 @@ public class Planet : CoroutineSystem
 
     private GameObject _orbit;
 
+    [SerializeField] private int minScale;
+    [SerializeField] private int maxScale;
+    
+
     public GameObject Orbit
     {
         get => _orbit;
@@ -56,6 +60,8 @@ public class Planet : CoroutineSystem
         {
             planetElementUIInfo.SetText(_data._name);
         }
+
+        transform.localScale = new Vector3(Random.Range(minScale,maxScale),Random.Range(minScale,maxScale),Random.Range(minScale,maxScale));
     }
 
     private void Update()

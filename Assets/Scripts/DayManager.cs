@@ -9,7 +9,8 @@ public class DayManager : CoroutineSystem
 
     [SerializeField] private DayState state;
     [SerializeField] private int dayCount;
-    [SerializeField] private int missionPerDay;
+    [SerializeField] private float missionPerDay;
+    [SerializeField] private float dayMissionAmplifier;
 
     [SerializeField] private MissionManager missionManager;
     [SerializeField] private PlanetManager  planetManager;
@@ -17,6 +18,7 @@ public class DayManager : CoroutineSystem
     [SerializeField] private GameObject endDayMenu;
 
     [SerializeField] private Slider satisfactionSlider;
+    [SerializeField] private ShipCreatorManager creatorManager;
     public int DayCount
     {
         get => dayCount;
@@ -36,6 +38,7 @@ public class DayManager : CoroutineSystem
                     endDayMenu.SetActive(false);
                     planetManager.NewPlanetSystem();
                     missionManager.DailyMissions.Clear();
+                    EventsDispatcher.Instance.DayGenerate();
                     State = DayState.IN_DAY;
                     break;
                 
@@ -48,7 +51,7 @@ public class DayManager : CoroutineSystem
 
     public int MissionPerDay
     {
-        get => missionPerDay;
+        get => (int)missionPerDay;
     }
 
     private void Start()
@@ -76,11 +79,12 @@ public class DayManager : CoroutineSystem
 
     private void OnMissionFinished()
     {
-        if(missionManager.DailyMissions.Count == missionPerDay)
+        if(missionManager.DailyMissions.Count == (int)missionPerDay)
         {
             // Change day
             Debug.Log("change day");
             dayCount++;
+            missionPerDay +=  missionPerDay * dayMissionAmplifier;
             endDayMenu.transform.GetChild(2).GetComponent<NumberSpriteCreator>().Number = missionManager.DailyMissions.Where(mission => mission.isSuccess).ToList().Count;
             endDayMenu.transform.GetChild(3).GetComponent<NumberSpriteCreator>().Number =  missionManager.DailyMissions.Where(mission => !mission.isSuccess).ToList().Count;
             endDayMenu.transform.GetChild(4).GetComponent<NumberSpriteCreator>().Number = (int)(satisfactionSlider.value * 100);
@@ -89,7 +93,14 @@ public class DayManager : CoroutineSystem
             missionManager.ClearMission();
           //  spawner.ResetGalaxy();
             State = DayState.SUMMARY;
-            
+            creatorManager.CloseMenu();
+
+
+            foreach (SpaceShipMovement movement in FindObjectsOfType<SpaceShipMovement>())
+            {
+                Destroy(movement.gameObject);
+            }
+
             endDayMenu.SetActive(true);
 
             RunDelayedInput(() =>

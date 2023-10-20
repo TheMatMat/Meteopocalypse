@@ -920,8 +920,8 @@ MonoBehaviour:
       type: 3}
   navigationButtons:
   - {fileID: 3386561210305878987}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 9141101552650340755}
+  - {fileID: 1777543242931559792}
 --- !u!1 &7644467771757966497
 GameObject:
   m_ObjectHideFlags: 0

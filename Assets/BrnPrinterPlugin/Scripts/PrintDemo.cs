@@ -41,13 +41,16 @@ public class PrintDemo : MonoBehaviour
     void ChangePrinter(int index)
     {
         string printerName = printer.GetPrinterName(index);
+       
+        Debug.Log("printer Name " + printerName);
+        
         printer.SelectPrinter(printerName);
     }
 
     // start the print test
     public void Print(Planet printPlanet)
     {
-        ChangePrinter(2);
+        ChangePrinter(1);
         // change printer settings here!
         Debug.Log("print my ticket");
         printer.SetPrinterSettings(Orientation.Default, PaperFormat.LetterSmall, 0, ColorMode.Default);

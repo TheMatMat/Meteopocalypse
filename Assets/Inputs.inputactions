@@ -605,18 +605,7 @@
                 {
                     "name": "",
                     "id": "652d39d2-72be-4e0e-8ffd-b7584501dae0",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "cea46698-f1dd-48dc-b42d-9f8790b7acec",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -627,7 +616,7 @@
                 {
                     "name": "",
                     "id": "4af6aaf2-5f3d-4ec9-88db-b51dc6885326",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -638,7 +627,7 @@
                 {
                     "name": "",
                     "id": "97bbb73b-199f-4cc1-96d2-3a7776b82bce",
-                    "path": "<Keyboard>/i",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
