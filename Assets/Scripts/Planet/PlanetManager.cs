@@ -88,9 +88,21 @@ public class PlanetManager : MonoBehaviour
             physics.Distance = randomDistance;
 
             //pick a random planet data
-            int planetDataIndex = _planetDataBase.Data[Random.Range(0, _planetDataBase.Data.Count)]._id;
 
-            planet.Data = _planetDataBase.Data[i];
+            List<PlanetData> planetsDataAvailable = new List<PlanetData>(_planetDataBase.Data);
+
+            List<PlanetData> currentPlanetsData = new List<PlanetData>();
+            _planets.ForEach(planet => currentPlanetsData.Add(planet.Data));
+
+            PlanetData planetData = _planetDataBase.Data[Random.Range(0, planetsDataAvailable.Count)];
+            
+            while (currentPlanetsData.Contains(planetData))
+            {
+                planetData = _planetDataBase.Data[Random.Range(0, planetsDataAvailable.Count)];
+                currentPlanetsData.Remove(planetData);
+            }
+
+            planet.Data = planetData;
             planet.gameObject.name = planet.Data._name;
 
             //Add in the List
