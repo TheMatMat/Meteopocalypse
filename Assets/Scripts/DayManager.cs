@@ -95,6 +95,12 @@ public class DayManager : CoroutineSystem
             State = DayState.SUMMARY;
             creatorManager.CloseMenu();
 
+
+            foreach (SpaceShipMovement movement in FindObjectsOfType<SpaceShipMovement>())
+            {
+                Destroy(movement.gameObject);
+            }
+
             endDayMenu.SetActive(true);
 
             RunDelayedInput(() =>
