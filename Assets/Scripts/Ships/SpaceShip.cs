@@ -89,6 +89,7 @@ public class SpaceShip : CoroutineSystem
         }
         else
         {
+            _shipMovement.ElementUIInfo.ResetIcons();
             _shipMovement.gameObject.SetActive(true);
             ActualizeDestination(reachPlanet.gameObject);
         }
