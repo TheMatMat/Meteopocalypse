@@ -89,12 +89,16 @@ public class SpaceShip : CoroutineSystem
         }
         else
         {
+            _shipMovement.gameObject.SetActive(true);
             ActualizeDestination(reachPlanet.gameObject);
         }
         
         // Generate Modules UI
         foreach (MISSION_SUBTYPE module in modules)
         {
+            Debug.Log("module " + module);
+            Debug.Log("type " + _typeManager.Instance);
+            Debug.Log("sprite " + _typeManager.Instance.GetSpriteBySubType(module));
             _shipMovement.ElementUIInfo.AddIcon(_typeManager.Instance.GetSpriteBySubType(module));
         }
         
@@ -117,6 +121,8 @@ public class SpaceShip : CoroutineSystem
         
         _spaceShipsEvent.ArriveSpaceShip(this);
         onArriveSpaceShip?.Invoke();
+        
+        _shipMovement.gameObject.SetActive(false);
 
         RunDelayed(timeToAchieveTask, () =>
         {
@@ -138,6 +144,7 @@ public class SpaceShip : CoroutineSystem
         Debug.Log("arrive on station");
         _hasBeenSend = false;
         _spacesipUI.color = new Color(_spacesipUI.color.r, _spacesipUI.color.g, _spacesipUI.color.b, 1f);
+        _shipMovement.gameObject.SetActive(false);
         _spaceShipsEvent.ReturnSpaceShip(this);
         onReturnSpaceShip?.Invoke();
     }

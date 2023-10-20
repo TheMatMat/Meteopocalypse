@@ -55,13 +55,21 @@ public class SatisfactionCounter : MonoBehaviour
 
     public void OnValueChanged(Slider newValue)
     {
-        Debug.Log("new value set");
         if (newValue.value <= 0)
         {
             gameManager.Death();
         }
     }
 
-    private void OnMissionSucceed() => Satisfaction += maxSatisfaction * missionSucceedPercentage;
-    private void OnMissionFailed() => Satisfaction -= maxSatisfaction * missionFailedPercentage;
+    private void OnMissionSucceed()
+    {
+        Satisfaction += maxSatisfaction * missionSucceedPercentage;
+        EventsDispatcher.Instance.MissionSucceed();
+    }
+
+    private void OnMissionFailed()
+    {
+        Satisfaction -= maxSatisfaction * missionFailedPercentage;
+        EventsDispatcher.Instance.MissionFailed();
+    } 
 }

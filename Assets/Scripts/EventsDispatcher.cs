@@ -18,6 +18,8 @@ public class EventsDispatcher : MonoBehaviour
     public UnityEvent OnFailedShipSend;
     public UnityEvent OnShipSend;
     public UnityEvent OnGameOver;
+    public UnityEvent OnMissionSucceed;
+    public UnityEvent OnMissionFailed;
 
     public InputActionProperty[] inputs = new InputActionProperty[2];
 
@@ -57,6 +59,8 @@ public class EventsDispatcher : MonoBehaviour
     public void FailedShipSend() => OnFailedShipSend?.Invoke();
     public void ShipSend() => OnShipSend?.Invoke();
     public void GameOver() => OnGameOver?.Invoke();
+    public void MissionSucceed() => OnMissionSucceed?.Invoke();
+    public void MissionFailed() => OnMissionFailed?.Invoke();
 
 
 

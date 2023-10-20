@@ -35,10 +35,14 @@ public class SpaceShipMovement : CoroutineSystem
 
     private bool _isMoving;
 
+    private GameObject _targetDestination;
+
     void Update()
     {
         if (_isMoving)
         {
+            transform.LookAt(_targetDestination.transform);
+            transform.DOLocalMove(_targetDestination.transform.position, timeToGo);
         }
 
         elementUIInfo.SetText(((int)_timer).ToString());
@@ -49,13 +53,13 @@ public class SpaceShipMovement : CoroutineSystem
 
     public void GoToPlanet(GameObject planet)
     {
-        transform.DOLocalMove(planet.transform.position, timeToGo);
+        _targetDestination = planet;
         _timer = timeToGo;
         _isMoving = true;
         
         RunDelayed(timeToGo,() =>
         {
-            if (transform.parent.GetComponent<Planet>() != null)
+            if (planet.GetComponent<Planet>() != null)
             {
                 spaceShip.ArriveOnPlanet();
             }

@@ -81,9 +81,6 @@ public class DayManager : CoroutineSystem
             // Change day
             Debug.Log("change day");
             dayCount++;
-            
-            
-            Debug.Log("failed count " + missionManager.DailyMissions.Where(mission => !mission.isSuccess).ToList().Count);
             endDayMenu.transform.GetChild(2).GetComponent<NumberSpriteCreator>().Number = missionManager.DailyMissions.Where(mission => mission.isSuccess).ToList().Count;
             endDayMenu.transform.GetChild(3).GetComponent<NumberSpriteCreator>().Number =  missionManager.DailyMissions.Where(mission => !mission.isSuccess).ToList().Count;
             endDayMenu.transform.GetChild(4).GetComponent<NumberSpriteCreator>().Number = (int)(satisfactionSlider.value * 100);
