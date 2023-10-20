@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.6500015, y: 0}
+  m_AnchoredPosition: {x: 1.1900012, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4456560504673682982
@@ -181,7 +181,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8470866656651551046
 MonoBehaviour:
@@ -285,8 +285,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0324904, y: 0.77500004}
-  m_SizeDelta: {x: 0.05542, y: 1.40095}
+  m_AnchoredPosition: {x: 0.82058, y: 0.75574}
+  m_SizeDelta: {x: 0.01689, y: 0.97713}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8904702452565051817
 CanvasRenderer:
@@ -543,7 +543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.3700027, y: 2.1900024}
+  m_AnchoredPosition: {x: 1.196, y: 1.3990021}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &245515326893146051
@@ -658,8 +658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.887}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.19188, y: 0.61598}
-  m_SizeDelta: {x: 0.05542, y: 0.46197}
+  m_AnchoredPosition: {x: 0.20679, y: 0.60165}
+  m_SizeDelta: {x: 0.01407, y: 0.46197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8522319224562493278
 CanvasRenderer:
@@ -734,8 +734,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.57499695, y: 0}
-  m_SizeDelta: {x: 0, y: 2.8289}
+  m_AnchoredPosition: {x: 0.34500122, y: 0}
+  m_SizeDelta: {x: 0, y: 1.23982}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2315096740195857788
 CanvasRenderer:
@@ -792,8 +792,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.5
-  m_fontSizeBase: 0.5
+  m_fontSize: 0.3
+  m_fontSizeBase: 0.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 1.1123577, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
