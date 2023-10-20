@@ -41,6 +41,9 @@ public class PrintDemo : MonoBehaviour
     void ChangePrinter(int index)
     {
         string printerName = printer.GetPrinterName(index);
+       
+        Debug.Log("printer Name " + printerName);
+        
         printer.SelectPrinter(printerName);
     }
 

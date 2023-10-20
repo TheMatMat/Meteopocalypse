@@ -126,7 +126,10 @@ public class SpaceShip : CoroutineSystem
 
         RunDelayed(timeToAchieveTask, () =>
         {
-            printer.Print(reachPlanet);
+            if (modules.Count > 0)
+            {
+                printer.Print(reachPlanet);
+            }
             _spaceShipsEvent.ReceivePlanetData(reachPlanet);
             _shipMovement.gameObject.SetActive(true);
             SendToStation();
