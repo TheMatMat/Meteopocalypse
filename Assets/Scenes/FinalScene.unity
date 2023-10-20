@@ -1133,6 +1133,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c848a8ae40a6b84fb9789ca6bd69516, type: 3}
+--- !u!114 &315632069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6677988488678129228, guid: 3c848a8ae40a6b84fb9789ca6bd69516,
+    type: 3}
+  m_PrefabInstance: {fileID: 315632068}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b6f04ed1b41654fab4d79458b6a046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &322708487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1384,7 @@ MonoBehaviour:
   planetManager: {fileID: 998920246}
   endDayMenu: {fileID: 355336484}
   satisfactionSlider: {fileID: 1103851246}
+  creatorManager: {fileID: 315632069}
 --- !u!1 &522425809
 GameObject:
   m_ObjectHideFlags: 0

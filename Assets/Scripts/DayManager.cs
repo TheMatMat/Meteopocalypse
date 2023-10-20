@@ -18,7 +18,7 @@ public class DayManager : CoroutineSystem
     [SerializeField] private GameObject endDayMenu;
 
     [SerializeField] private Slider satisfactionSlider;
-    
+    [SerializeField] private ShipCreatorManager creatorManager;
     public int DayCount
     {
         get => dayCount;
@@ -93,7 +93,8 @@ public class DayManager : CoroutineSystem
             missionManager.ClearMission();
           //  spawner.ResetGalaxy();
             State = DayState.SUMMARY;
-            
+            creatorManager.CloseMenu();
+
             endDayMenu.SetActive(true);
 
             RunDelayedInput(() =>

@@ -368,7 +368,7 @@ public class ShipCreatorManager : MonoBehaviour
         }
     }
 
-    private void CloseMenu()
+    public void CloseMenu()
     {
         TargetShip = null;
         closeMenu?.Invoke();
