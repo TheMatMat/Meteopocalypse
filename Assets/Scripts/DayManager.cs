@@ -36,6 +36,7 @@ public class DayManager : CoroutineSystem
                     endDayMenu.SetActive(false);
                     planetManager.NewPlanetSystem();
                     missionManager.DailyMissions.Clear();
+                    EventsDispatcher.Instance.DayGenerate();
                     State = DayState.IN_DAY;
                     break;
                 
