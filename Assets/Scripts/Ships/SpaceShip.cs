@@ -126,7 +126,7 @@ public class SpaceShip : CoroutineSystem
 
         RunDelayed(timeToAchieveTask, () =>
         {
-            if (modules.Count > 0)
+            if (modules.Count == 0)
             {
                 printer.Print(reachPlanet);
             }
