@@ -1367,6 +1367,7 @@ MonoBehaviour:
   state: 1
   dayCount: 0
   missionPerDay: 4
+  dayMissionAmplifier: 0.5
   missionManager: {fileID: 798226765}
   planetManager: {fileID: 998920246}
   endDayMenu: {fileID: 355336484}
